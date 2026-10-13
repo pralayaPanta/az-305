@@ -4,7 +4,6 @@ tags:
   - az-305
 title:
 author: Pralaya Panta
-updated: 2026-10-01
 ---
 
 
@@ -81,7 +80,5 @@ https://learn.microsoft.com/en-us/training/modules/configure-azure-container-ins
 
 
 
-![[Pasted image 20261004091820.png]]
 
 
-![[Pasted image 20261004092923.png]]

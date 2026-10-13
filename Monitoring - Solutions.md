@@ -3,7 +3,6 @@ tags:
   - studynote
 title: Monitoring - Solutions
 author: Pralaya Panta
-updated: 2026-09-27
 ---
 
 

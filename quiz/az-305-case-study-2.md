@@ -2,17 +2,14 @@
 title: "AZ-305 Case Study 2 — Litware Financial Services"
 tags: [mscerts, az-305, case-study, azure, architecture, cosmosdb, event-hubs, ai-foundry, landing-zones, finops]
 created: 2026-10-09
-updated: 2026-10-10
 type: case-study
 exam: AZ-305
-exam-date: 2026-10-16
 total-questions: 22
 ---
 
 # AZ-305 Case Study 2 — Litware Financial Services
 
 ```
-📅 AZ-305 Exam Date: October 16, 2026 — 🔴 6 days away
 Format: Full case study · 22 questions · Hot Area, Solution Series, Drag & Drop, Multi-Select, Multiple Choice
 ```
 
@@ -574,10 +571,9 @@ D) Enable VM insights on the Container Apps environment.
 ---
 
 ## 🔗 Related Vault References
-- [[mscerts/az-305/README|AZ-305 Master Index]]
-- [[mscerts/az-305/quiz/az-305-quiz|AZ-305 Practice Quiz & Mock Tracker]]
-- [[mscerts/az-305/quiz/az-305-case-study-1|Case Study 1: Contoso Pharmaceuticals]]
-- [[mscerts/az-305/Storage4 - non relational database (nosql)|NoSQL & Azure Cosmos DB]]
-- [[mscerts/az-305/Governance - Azure Policy|Governance & Azure Policy]]
-- [[mscerts/az-305/Networking - Security|Network Security & Isolation]]
-- **Relevant Skills:** [[.agents/skills/exam-prep/SKILL|exam-prep skill]] · [[.agents/skills/azure-security/SKILL|azure-security skill]]
+- [AZ-305 Master Index](../README.md)
+- [AZ-305 Practice Quiz & Mock Tracker](az-305-quiz.md)
+- [Case Study 1: Contoso Pharmaceuticals](az-305-case-study-1.md)
+- [NoSQL & Azure Cosmos DB](../Storage4%20-%20non%20relational%20database%20%28nosql%29.md)
+- [Governance & Azure Policy](../Governance%20-%20Azure%20Policy.md)
+- [Network Security & Isolation](../Networking%20-%20Security.md)

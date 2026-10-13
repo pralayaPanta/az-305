@@ -4,7 +4,6 @@ tags:
   - studynote
 title: Storage - data integration
 author: Pralaya Panta
-updated: 2026-09-13
 ---
 
 

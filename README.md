@@ -6,7 +6,6 @@ tags:
   - architecture
   - study-guide
 created: 2026-08-18
-updated: 2026-10-01
 type: cert-guide
 ---
 
@@ -115,9 +114,6 @@ Nine full-length 50-question mock exams testing senior architectural decision-ma
 
 ---
 
-## 🔗 Quick Navigation & Skills Map
-- **Overarching Index:** [[mscerts/mscert-readme|Microsoft Certifications Index]]
-- **Study Guide & Decision Trees:** [[305-study-plan|AZ-305 Master Study Plan]]
-- **Practice Suite:** [[quiz/az-305-quiz|AZ-305 Practice Quiz & Mock Tracker]]
-- **Master Systems:** [[MEMORY]] · [[PROJECTS]] · [[GEMINI]]
-- **Relevant Skills:** [[.agents/skills/cert-roadmap/SKILL|cert-roadmap skill]] · [[.agents/skills/exam-prep/SKILL|exam-prep skill]] · [[.agents/skills/azure-deploy/SKILL|azure-deploy skill]] · [[.agents/skills/azure-security/SKILL|azure-security skill]]
+## 🔗 Quick Navigation
+- **Study Guide & Decision Trees:** [AZ-305 Master Study Plan](305-study-plan.md)
+- **Practice Suite:** [AZ-305 Practice Quiz & Mock Tracker](quiz/az-305-quiz.md)

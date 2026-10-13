@@ -4,7 +4,6 @@ tags:
   - az-305
 title:
 author: Pralaya Panta
-updated: 2026-10-01
 ---
 
 
@@ -47,7 +46,6 @@ updated: 2026-10-01
 	- example - cmd, powershell, bash, node.js, java, python
 	-  run background tasks as part of application logic
 
-![[Pasted image 20261004091842.png]]
 
 [Introduction to App Service](https://learn.microsoft.com/en-us/azure/app-service/overview)
 ## Azure Functions
@@ -62,7 +60,6 @@ updated: 2026-10-01
 		- default time out is 300 seconds for Consumption Plan functions, and 30 minutes for any other plan
 	- maximize performance by using a separate storage account for each function application
 
-![[Pasted image 20261004121407.png]]
 
 ## Azure Logic App 
 
@@ -79,4 +76,3 @@ updated: 2026-10-01
 
 [Introduction to Azure Logic Apps](https://learn.microsoft.com/en-us/training/modules/intro-to-logic-apps/)
 
-![[Pasted image 20261004121911.png]]

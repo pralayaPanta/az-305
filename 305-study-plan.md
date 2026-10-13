@@ -7,7 +7,6 @@ tags:
   - az-305
 series: AZ-305
 created: 2026-07-25
-updated: 2026-08-31
 type: study-plan
 ---
 
@@ -62,16 +61,15 @@ These are the **exact resources** that map to every week in this plan:
 | **Whizlabs — AZ-305 Practice Tests + Labs** | Optional — supplement Tutorials Dojo if needed | ≥75%                     |
 |                                             |                                                |                          |
 
-### ✍️ Vault Notes (Your Existing Files)
-| Note File | Topic | Status |
+### ✍️ Companion Architecture Notes
+| Note File | Topic | Scope |
 |---|---|---|
-| [[mscerts/az-305/Identity - Authentication\|Identity - Authentication.md]] | Domain 1.1 — Auth & Entra ID | Exists — update during Week 5 |
-| [[mscerts/az-305/Monitoring - Solutions\|Monitoring - Solutions.md]] | Domain 1.3 — Azure Monitor & Log Analytics | Exists — update during Week 5 |
-| [[Storage3 - relational database\|Storage - relational data.md]] | Domain 2.2 — Relational DB & SQL tiers | Exists — update during Week 2 |
-| [[Business Cont - Backup & recovery\|Backup & recovery.md]] | Domain 3 — ASR, Azure Backup, CRR | Exists — update during Week 5 |
-| [[mscerts/az-305/Azure Well-Architected Framework\|Azure Well-Architected Framework.md]] | WAF (all domains) | Exists — reference throughout |
-| [[305-study-plan\|az-305-study.md]] | Master study plan | **You are here** |
-| [[az-305-quiz\|az-305-quiz.md]] | Quiz tracker & benchmark log | Active — log errors weekly |
+| [Identity - Authentication.md](Identity%20-%20Authentication.md) | Domain 1.1 — Auth & Entra ID | B2B/B2C, Managed Identities, CA, PIM |
+| [Monitoring - Solutions.md](Monitoring%20-%20Solutions.md) | Domain 1.3 — Azure Monitor & Log Analytics | Workspaces, AMA, DCR, App Insights |
+| [Storage3 - relational database.md](Storage3%20-%20relational%20database.md) | Domain 2.2 — Relational DB & SQL tiers | SQL DB, MI, Hyperscale, Failover Groups |
+| [Business Cont - Backup & recovery.md](Business%20Cont%20-%20Backup%20%26%20recovery.md) | Domain 3 — ASR, Azure Backup, CRR | RTO/RPO, Vaults, Immutability, DR |
+| [Azure Well-Architected Framework.md](Azure%20Well-Architected%20Framework.md) | WAF (Cross-Domain) | 5 WAF Pillars & Architectural Trade-offs |
+| [az-305-quiz.md](quiz/az-305-quiz.md) | Quiz tracker & benchmark log | Assessment hub & error review log |
 
 ---
 
@@ -104,7 +102,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 - [ ] Managed Identities — system-assigned vs. user-assigned; Service Principals for app auth
 - [ ] Microsoft Entra Domain Services (Azure AD DS) vs. traditional AD DS on-prem integration
 - [ ] App Registrations — OAuth2.0, OIDC, API permissions, client credentials flow
-- [ ] Vault Note: [[mscerts/az-305/Identity - Authentication|Identity - Authentication.md]]
+- [ ] Vault Note: [Identity - Authentication.md](Identity%20-%20Authentication.md)
 
 **1.2 Design a Governance Solution**
 - [ ] Cloud Adoption Framework (CAF) — Enterprise-Scale / Azure Landing Zone architecture
@@ -126,7 +124,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 - [ ] Microsoft Defender for Cloud — data ingestion design for multi-tenant monitoring
 - [ ] Microsoft Sentinel — data connector architecture, multi-workspace / MSSP model
 - [ ] KQL fundamentals: [KQL Learning Path](https://learn.microsoft.com/en-us/training/paths/kusto-query-language/) | [KQL for Monitoring](https://learn.microsoft.com/en-us/training/paths/analyze-monitoring-data-with-kql/)
-- [ ] Vault Note: [[mscerts/az-305/Monitoring - Solutions|Monitoring - Solutions.md]]
+- [ ] Vault Note: [Monitoring - Solutions.md](Monitoring%20-%20Solutions.md)
 
 ---
 
@@ -158,7 +156,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 - [ ] Hyperscale tier — [Service tier documentation](https://learn.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale)
 - [ ] Open-source relational — Azure Database for PostgreSQL / MySQL (Flexible Server, Zone-Redundant HA)
 - [ ] Security — TDE (Transparent Data Encryption), Always Encrypted, Dynamic Data Masking, RBAC
-- [ ] Vault Note: [[Storage3 - relational database|Storage - relational data.md]]
+- [ ] Vault Note: [Storage - relational data.md](Storage3%20-%20relational%20database.md)
 
 **2.3 Design Data Integration & Analytics Solutions**
 - [ ] Azure Data Factory — Pipelines, Activities, Self-Hosted Integration Runtime (SHIR), Data Flows
@@ -183,7 +181,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 - [ ] Cross-Region Restore (CRR) — requirements: GRS/GZRS vault, secondary region restore capability
 - [ ] Soft Delete (accidental deletion protection) & Multi-User Authorization (MUA) for backups
 - [ ] SQL DB backups — full/differential/log, point-in-time restore (PITR), long-term retention (LTR)
-- [ ] Vault Note: [[Business Cont - Backup & recovery|Backup & recovery.md]]
+- [ ] Vault Note: [Backup & recovery.md](Business%20Cont%20-%20Backup%20%26%20recovery.md)
 
 **3.2 Design for High Availability**
 - [ ] Storage Redundancy — LRS (3 copies, 1 region), ZRS (3 zones, 1 region), GRS (paired region), RA-GRS, GZRS, RA-GZRS
@@ -435,10 +433,10 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Day | Activity |
 |---|---|
 | **Sprint Day 1** | 📺 John Savill: [AZ-305 Exam Cram v2](https://www.youtube.com/watch?v=vq9LuCM4YP4) — full 3 hours at 1.25× speed. Pause only on uncertain topics. |
-| **Sprint Day 2** | 🃏 Flashcard blitz: Cosmos DB consistency levels, SQL MI vs. SQL DB decision, load balancer matrix, storage redundancy table, BCDR vault types. Review [[az-305-quiz\|az-305-quiz.md]] error log only. |
+| **Sprint Day 2** | 🃏 Flashcard blitz: Cosmos DB consistency levels, SQL MI vs. SQL DB decision, load balancer matrix, storage redundancy table, BCDR vault types. Review [az-305-quiz.md](quiz/az-305-quiz.md) error log only. |
 | **Sprint Day 3** | 📖 Light re-read: all 4 domain checklists in Section 4. Case study timing strategy: 25 min per case study, ~1 min per standalone question. |
-| **Sprint Day 4 (Eve)** | 🧘 Short skim of cheat sheets in Section 6. Pack exam setup (webcam, ID, quiet room). No cramming after 8 PM. Early rest. |
-| **EXAM DAY** | 🎯 **EXAM DAY** — AZ-305: Designing Microsoft Azure Infrastructure Solutions (Pearson VUE / Test Center). |
+| **Sprint Day 4 (Eve)** | 🧘 Short skim of cheat sheets in Section 6. Prepare exam setup (webcam, ID, quiet room). Avoid late-night cramming. Early rest. |
+| **EXAM DAY** | 🎯 AZ-305: Designing Microsoft Azure Infrastructure Solutions (Pearson VUE / Test Center). |
 
 ---
 
@@ -507,12 +505,10 @@ Single-region writes only            Best for e-commerce, shopping carts        
 ---
 
 ## 🔗 7. Quick Navigation
-- **Microsoft Certifications Index:** [[mscerts/mscert-readme|mscert-readme]]
-- **Quiz Tracker & Error Log:** [[az-305-quiz|az-305-quiz.md]]
-- **Identity & Auth Notes:** [[mscerts/az-305/Identity - Authentication|Identity - Authentication.md]]
-- **Monitoring Notes:** [[mscerts/az-305/Monitoring - Solutions|Monitoring - Solutions.md]]
-- **Storage Relational Notes:** [[Storage3 - relational database|Storage - relational data.md]]
-- **Backup & Recovery Notes:** [[Business Cont - Backup & recovery|Backup & recovery.md]]
-- **WAF Reference:** [[mscerts/az-305/Azure Well-Architected Framework|Azure Well-Architected Framework.md]]
-- **Active Projects:** [[PROJECTS]] · **Memory:** [[MEMORY]]
-- **Skills:** [[.agents/skills/cert-roadmap/SKILL|cert-roadmap skill]] · [[.agents/skills/exam-prep/SKILL|exam-prep skill]]
+- **Study Guide Index:** [README](README.md)
+- **Quiz Tracker & Error Log:** [az-305-quiz.md](quiz/az-305-quiz.md)
+- **Identity & Auth Notes:** [Identity - Authentication.md](Identity%20-%20Authentication.md)
+- **Monitoring Notes:** [Monitoring - Solutions.md](Monitoring%20-%20Solutions.md)
+- **Storage Relational Notes:** [Storage3 - relational database.md](Storage3%20-%20relational%20database.md)
+- **Backup & Recovery Notes:** [Business Cont - Backup & recovery.md](Business%20Cont%20-%20Backup%20%26%20recovery.md)
+- **WAF Reference:** [Azure Well-Architected Framework.md](Azure%20Well-Architected%20Framework.md)

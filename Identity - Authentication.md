@@ -4,7 +4,6 @@ tags:
   - az-305
 title:
 author: Pralaya Panta
-updated: 2026-10-07
 ---
 
 ```table-of-contents

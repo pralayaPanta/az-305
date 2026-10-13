@@ -4,7 +4,6 @@ tags:
   - az-305
 title:
 author: Pralaya Panta
-updated: 2026-10-01
 ---
 
 
@@ -105,7 +104,6 @@ updated: 2026-10-01
 
 
 
-![[Pasted image 20261003183835.png]]
 
 
 ### Azure hierarchy

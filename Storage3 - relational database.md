@@ -4,7 +4,6 @@ tags:
   - az-305
 title: Storage - relational database
 author: Pralaya Panta
-updated: 2026-09-13
 ---
 
 ```table-of-contents

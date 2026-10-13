@@ -2,17 +2,14 @@
 title: "AZ-305 Case Study 1 — Contoso Pharmaceuticals"
 tags: [mscerts, az-305, case-study, azure, architecture, hybrid, sql, aks, bcdr, vwan]
 created: 2026-10-09
-updated: 2026-10-10
 type: case-study
 exam: AZ-305
-exam-date: 2026-10-16
 total-questions: 22
 ---
 
 # AZ-305 Case Study 1 — Contoso Pharmaceuticals
 
 ```
-📅 AZ-305 Exam Date: October 16, 2026 — 🔴 6 days away
 Format: Full case study · 22 questions · Hot Area, Solution Series, Drag & Drop, Multiple Choice
 ```
 
@@ -600,11 +597,10 @@ You need to minimize the compute costs of the TrialScheduler virtual machines in
 ---
 
 ## 🔗 Related Vault References
-- [[mscerts/az-305/README|AZ-305 Master Index]]
-- [[mscerts/az-305/quiz/az-305-quiz|AZ-305 Practice Quiz & Mock Tracker]]
-- [[mscerts/az-305/quiz/az-305-case-study-2|Case Study 2: Litware Financial Services]]
-- [[mscerts/az-305/Storage3 - relational database|Relational Databases & Azure SQL]]
-- [[mscerts/az-305/Networking - Connectivity|Hybrid Networking & Virtual WAN]]
-- [[mscerts/az-305/Business Cont - Backup & recovery|Backup & Disaster Recovery]]
-- [[mscerts/az-305/Monitoring - Solutions|Monitoring Solutions (AMA & DCR)]]
-- **Relevant Skills:** [[.agents/skills/exam-prep/SKILL|exam-prep skill]] · [[.agents/skills/azure-deploy/SKILL|azure-deploy skill]]
+- [AZ-305 Master Index](../README.md)
+- [AZ-305 Practice Quiz & Mock Tracker](az-305-quiz.md)
+- [Case Study 2: Litware Financial Services](az-305-case-study-2.md)
+- [Relational Databases & Azure SQL](../Storage3%20-%20relational%20database.md)
+- [Hybrid Networking & Virtual WAN](../Networking%20-%20Connectivity.md)
+- [Backup & Disaster Recovery](../Business%20Cont%20-%20Backup%20%26%20recovery.md)
+- [Monitoring Solutions (AMA & DCR)](../Monitoring%20-%20Solutions.md)

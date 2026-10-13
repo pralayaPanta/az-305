@@ -9,7 +9,7 @@ https://github.com/timothywarner/az305
 
 ## Useful links
 
-[](https://github.com/www42/AZ-305#useful-links)
+[www42/AZ-305 Useful Links](https://github.com/www42/AZ-305#useful-links)
 
 [Microsoft Entra External ID documentation](https://learn.microsoft.com/en-us/entra/external-id/)
 
@@ -59,9 +59,9 @@ https://github.com/timothywarner/az305
 
 [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
 
-[Azure Charts](https://https//azurecharts.com/)
+[Azure Charts](https://azurecharts.com/)
 
-[Azure Docs](https://https//docs.microsoft.com/en-us/azure/)
+[Azure Docs](https://docs.microsoft.com/en-us/azure/)
 
 [Microsoft Cloud Adoption Framework for Azure](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/)
 

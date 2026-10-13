@@ -4,13 +4,10 @@ created: 2026-09-26
 type: exam-practice
 set: 4
 exam: AZ-305
-exam-date: 2026-10-16
 total-questions: 50
 ---
 
 # AZ-305 Practice Set 4 — Full Comprehensive Mock Exam (50 Questions)
-
-📅 **AZ-305 Exam Date:** October 16, 2026 — **20 days away**
 
 > **Interactive Mode:** Click on **▶ Show Answer & Explanation** under each question to reveal the solution.
 
@@ -1035,12 +1032,18 @@ D) Submit an Azure Support ticket requesting a manual billing credit transfer
 ---
 
 ## 🔗 Practice Sets Navigation
-- [[az-305-practice-set-1|Practice Set 1 (25 Qs)]]
-- [[az-305-practice-set-2|Practice Set 2 (25 Qs)]]
-- [[az-305-practice-set-3|Practice Set 3 (20 Qs)]]
-- [[az-305-practice-set-4|Practice Set 4 (50 Qs)]]
-- [[az-305-practice-set-5|Practice Set 5 (20 Qs)]]
-- [[az-305-practice-set-6|Practice Set 6 (20 Qs)]]
-- [[az-305-practice-set-7|Practice Set 7 (20 Qs)]]
-- [[az-305-practice-set-8|Practice Set 8 (20 Qs)]]
-- [[az-305-quiz|AZ-305 Practice Quiz & Mock Tracker]] · [[mscerts/mscert-readme|Microsoft Certifications Index]]
+- **Master Study Plan:** [AZ-305 Study Guide](../305-study-plan.md)
+- **Interactive Practice Hub:** [AZ-305 Quiz Navigation Hub](az-305-quiz.md)
+- **Practice Sets:**
+  - [Practice Set 1](az-305-practice-set-1.md)
+  - [Practice Set 2](az-305-practice-set-2.md)
+  - [Practice Set 3](az-305-practice-set-3.md)
+  - [Practice Set 4](az-305-practice-set-4.md)
+  - [Practice Set 5](az-305-practice-set-5.md)
+  - [Practice Set 6](az-305-practice-set-6.md)
+  - [Practice Set 7](az-305-practice-set-7.md)
+  - [Practice Set 8](az-305-practice-set-8.md)
+  - [Practice Set 9](az-305-practice-set-9.md)
+- **Case Studies:**
+  - [Case Study 1: Contoso Pharmaceuticals](az-305-case-study-1.md)
+  - [Case Study 2: Litware Financial Services](az-305-case-study-2.md)

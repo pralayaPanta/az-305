@@ -4,7 +4,6 @@ tags:
   - az-305
 title: Storage - non relational data
 author: Pralaya Panta
-updated: 2026-09-13
 ---
 
 
