@@ -283,7 +283,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Thu         | ✍️ Note: Cosmos DB 5 consistency matrix + API decision table                                                                                                               | Add to vault                                                                                                                                                  |
 | Fri         | ✍️ Note: Blob tier + WORM + Azure Files vs. NetApp Files comparison table                                                                                                  | Add to vault                                                                                                                                                  |
 | Sat         | 🧪 Tutorials Dojo: Domain 2 — Non-Relational Storage section test                                                                                                          | Target ≥75%                                                                                                                                                   |
-| Sat         | 🔁 Log all wrong answers in [[az-305-quiz\|az-305-quiz.md]]                                                                                                 | Record rationale                                                                                                                                              |
+| Sat         | 🔁 Log all wrong answers in [az-305-quiz.md](quiz/az-305-quiz.md)                                                                                                 | Record rationale                                                                                                                                              |
 | Sun         | 📖 Review: [AZ-305 Study Guide — Charbel Nemnom](https://charbelnemnom.com/az-305-exam-study-guide/) — Domain 2 section                                                    | Community guide                                                                                                                                               |
 | Sun         | 📖 Review: [AkashHiwale GitHub Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Non-Relational section                         | Community notes                                                                                                                                               |
 
@@ -303,10 +303,10 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Thu | 📺 Pluralsight: *Designing Data Integration Solutions for Microsoft Azure* | Pluralsight AZ-305 Path |
 | Thu | 📖 MS Learn: Synapse Analytics, Data Factory, Data Lake Gen2 modules | MS Learn AZ-305 Path |
 | Thu | 📖 Read: [IoT Reference Architecture](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/iot) + [Integration Services](https://azure.microsoft.com/en-us/products/category/integration/) | Domain 2.3 context |
-| Fri | ✍️ Update: [[Storage3 - relational database\|Storage - relational data.md]] — SQL Feature Decision Matrix | GP vs. BC vs. Hyperscale |
+| Fri | ✍️ Update: [Storage - relational data.md](Storage3%20-%20relational%20database.md) — SQL Feature Decision Matrix | GP vs. BC vs. Hyperscale |
 | Fri | ✍️ Note: Synapse vs. Fabric vs. Databricks vs. ADF — use-case decision table | Add to vault |
 | Sat | 🧪 Tutorials Dojo: Domain 2 — Relational Data section test | Target ≥75% |
-| Sat | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
+| Sat | 🔁 Log wrong answers in [az-305-quiz.md](quiz/az-305-quiz.md) | Record rationale |
 | Sun | 📖 Review: [AkashHiwale GitHub Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Relational & Integration | Community notes |
 | Sun | 📖 Skim: [timothywarner/az305 Labs](https://github.com/timothywarner/az305) — Domain 2 lab scenarios | Hands-on context |
 
@@ -329,7 +329,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Thu | ✍️ Note: Messaging decision table — Event Grid vs. Event Hubs vs. Service Bus vs. Storage Queues | New vault note |
 | Fri | 📖 Read: APIM policies, self-hosted gateway, Key Vault access models (RBAC vs. Access Policies) | MS Learn App Architecture Path |
 | Sat | 🧪 Tutorials Dojo: Domain 4 — Compute section test | Target ≥75% |
-| Sat | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
+| Sat | 🔁 Log wrong answers in [az-305-quiz.md](quiz/az-305-quiz.md) | Record rationale |
 | Sun | 📖 Review: [AkashHiwale Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Compute & App Architecture section | Community notes |
 
 ---
@@ -353,7 +353,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Fri | ✍️ Note: Load Balancer selection matrix (Global vs. Regional, L4 vs. L7) | New vault note |
 | Fri | ✍️ Note: Hybrid connectivity — ExpressRoute vs. S2S VPN vs. Virtual WAN decision table | New vault note |
 | Sat | 🧪 Tutorials Dojo: Domain 4 — Networking section test | Target ≥75% |
-| Sat | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
+| Sat | 🔁 Log wrong answers in [az-305-quiz.md](quiz/az-305-quiz.md) | Record rationale |
 | Sun | 📖 Review: [AkashHiwale Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Networking section | Community notes |
 | Sun | 📖 Review: [www42/AZ-305 Useful Links](https://github.com/www42/AZ-305) + [timothywarner/az305](https://github.com/timothywarner/az305) | Supplementary materials |
 
@@ -369,14 +369,14 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Mon | 📺 John Savill: Azure Site Recovery deep-dive (ASR scenarios, replication policies, test failover) | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
 | Tue | 📖 MS Learn: *Design business continuity solutions* modules | MS Learn AZ-305 Path |
 | Tue | 📺 John Savill: Azure Backup tiering — Vault-Standard vs. Vault-Archive, CRR, Soft Delete, MUA | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
-| Tue | ✍️ Update: [[Business Cont - Backup & recovery\|Backup & recovery.md]] — ASR scenarios, CRR requirements, RTO/RPO decision table, backup vault types | Key vault note |
+| Tue | ✍️ Update: [Backup & recovery.md](Business%20Cont%20-%20Backup%20%26%20recovery.md) — ASR scenarios, CRR requirements, RTO/RPO decision table, backup vault types | Key vault note |
 | Wed | 📖 Read: Storage redundancy (LRS, ZRS, GRS, RA-GRS, GZRS, RA-GZRS) — when to use each | MS Learn Storage Resilience |
 | Wed | 📖 Read: VM Availability Sets (fault/update domains) vs. Availability Zones (99.99% SLA), composite SLA | MS Learn HA Path |
 | Wed | 📖 Read: SQL DB PITR, LTR, full/differential/log backup design | MS Learn SQL Backup |
 | Thu | ✍️ Note: Storage redundancy comparison table (all 6 options) | Cross-reference with cheat sheet Section 6D |
 | Thu | ✍️ Note: BCDR decision flow — which scenario → ASR vs. Azure Backup vs. CRR | New vault note |
 | Fri | 🧪 Tutorials Dojo: Domain 3 — Business Continuity section test | Target ≥75% |
-| Fri | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
+| Fri | 🔁 Log wrong answers in [az-305-quiz.md](quiz/az-305-quiz.md) | Record rationale |
 | Fri | 📖 Review: [Charbel Nemnom AZ-305 Study Guide](https://charbelnemnom.com/az-305-exam-study-guide/) — Domain 3 section | Community guide |
 
 ---
@@ -396,13 +396,13 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Day 4 | 📖 Read: [Entra External ID documentation](https://learn.microsoft.com/en-us/entra/external-id/) — B2B Guest vs. B2C/External ID | Domain 1.1 |
 | Day 4 | 📖 Read: [MFA mandate for Azure sign-in](https://azure.microsoft.com/en-us/blog/announcing-mandatory-multi-factor-authentication-for-azure-sign-in/) + Conditional Access design | Domain 1.1 |
 | Day 4 | 📖 Read: [Elevate access to manage subscriptions](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) + PIM for Azure RBAC | Domain 1.1 |
-| Day 4 | ✍️ Update: [[mscerts/az-305/Identity - Authentication\|Identity - Authentication.md]] — Conditional Access, PIM, Managed Identities, App Registration patterns | Key vault note |
+| Day 4 | ✍️ Update: [Identity - Authentication.md](Identity%20-%20Authentication.md) — Conditional Access, PIM, Managed Identities, App Registration patterns | Key vault note |
 | Day 5 | 📖 MS Learn: *Design governance, identity, and monitoring* domain modules | MS Learn AZ-305 Path |
 | Day 5 | 📖 Read: [KQL learning path](https://learn.microsoft.com/en-us/training/paths/kusto-query-language/) + [KQL for monitoring](https://learn.microsoft.com/en-us/training/paths/analyze-monitoring-data-with-kql/) — first 2 modules each | Domain 1.3 |
-| Day 5 | ✍️ Update: [[mscerts/az-305/Monitoring - Solutions\|Monitoring - Solutions.md]] — Log Analytics workspace design (centralized vs. decentralized), App Insights, Defender for Cloud ingestion | Key vault note |
+| Day 5 | ✍️ Update: [Monitoring - Solutions.md](Monitoring%20-%20Solutions.md) — Log Analytics workspace design (centralized vs. decentralized), App Insights, Defender for Cloud ingestion | Key vault note |
 | Day 6 | ✍️ Note: CAF landing zone architecture + Management Group + Subscription vending decision flow | Add to vault |
 | Day 6 | 🧪 Tutorials Dojo: Domain 1 — Identity, Governance & Monitoring section test | Target ≥75% |
-| Day 6 | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
+| Day 6 | 🔁 Log wrong answers in [az-305-quiz.md](quiz/az-305-quiz.md) | Record rationale |
 | Day 7 | 📖 Review: [AkashHiwale Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Identity & Governance section | Community notes |
 
 ---
@@ -414,14 +414,14 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 | Day | Activity | Resource |
 |---|---|---|
 | Day 1 | 📺 John Savill: How to approach AZ-305 case studies (timing, tab strategy) | [Exam Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
-| Day 1 | 📖 Read: [[mscerts/az-305/Azure Well-Architected Framework\|Azure Well-Architected Framework.md]] — all 5 pillars (Reliability, Security, Cost, Performance, Ops) | In-vault reference |
+| Day 1 | 📖 Read: [Azure Well-Architected Framework.md](Azure%20Well-Architected%20Framework.md) — all 5 pillars (Reliability, Security, Cost, Performance, Ops) | In-vault reference |
 | Day 1 | 📖 Scan: [Azure Architecture Center reference architectures](https://learn.microsoft.com/en-us/azure/architecture/) — all key decision trees | Compute, storage, network |
 | Day 2 | 🧪 **MeasureUp Full Timed Mock Exam 1** (full exam conditions — no pausing) | Target: ≥80% |
-| Day 2 | 🔁 Detailed error analysis — document architectural rationale for every wrong answer | [[az-305-quiz\|az-305-quiz.md]] |
+| Day 2 | 🔁 Detailed error analysis — document architectural rationale for every wrong answer | [az-305-quiz.md](quiz/az-305-quiz.md) |
 | Day 3 | 📖 Targeted re-study: weakest domains from Mock 1 — revisit relevant vault notes | All vault note files |
 | Day 3 | 📖 Skim: [timothywarner/az305 labs](https://github.com/timothywarner/az305) — case study lab scenarios | Lab context |
 | Day 3 | 🧪 **MeasureUp Full Timed Mock Exam 2** (full exam conditions) | Target: ≥85% |
-| Day 3 | 🔁 Error analysis — confirm weak domains are resolved | [[az-305-quiz\|az-305-quiz.md]] |
+| Day 3 | 🔁 Error analysis — confirm weak domains are resolved | [az-305-quiz.md](quiz/az-305-quiz.md) |
 | Day 4 | 🧪 **MS Learn Official Practice Assessment** — second run | Target ≥85% |
 | Day 4 | 📖 Skim all 4 domain objective checklists in Section 4 — tick off confirmed topics | This file |
 | Day 4 | 📖 Review all decision cheat sheets in Section 6 | This file |
