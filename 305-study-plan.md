@@ -14,10 +14,8 @@ type: study-plan
 # AZ-305: Designing Microsoft Azure Infrastructure Solutions — Master Study Plan
 
 > **Target Credential:** Microsoft Certified: Azure Solutions Architect Expert
-> **Exam Date:** 🟠 **Friday, October 16, 2026 at 10:00 AM AEST**
-> **Booking Voucher:** `MSAIVKCJ5FBC` (AI Skills Fest R2)
-> **Study Window:** August 31 – October 15, 2026 (6.5 Weeks / 46 Days)
-> **Prerequisites:** ✅ AZ-104 Certified (valid through Mar 2027)
+> **Schedule:** 6–7 Weeks (Structured Preparation Framework)
+> **Prerequisites:** Azure Administrator Associate (AZ-104) recommended / prerequisite for Azure Solutions Architect Expert certification
 
 ---
 
@@ -253,31 +251,31 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 
 ---
 
-## 🗓️ 5. Week-by-Week Execution Plan (Aug 31 – Oct 16)
+## 🗓️ 5. Week-by-Week Execution Plan (7-Week Framework)
 
-> **Schedule overview — all 4 domains, each in their own block:**
+> **Schedule overview — all 4 domains, each structured in their own milestone block:**
 
-| Block            | Dates           | Domain                                                    | Weight |
-| ---------------- | --------------- | --------------------------------------------------------- | :----: |
-| **Week 1**       | Aug 31 – Sep 6  | Domain 2.1 — Non-Relational Storage & Cosmos DB           | 20–25% |
-| **Week 2**       | Sep 7 – Sep 13  | Domain 2.2 & 2.3 — Relational DBs + Data Integration      | 20–25% |
-| **Week 3**       | Sep 14 – Sep 20 | Domain 4.1 & 4.2 — Compute + App Architecture & Messaging | 30–35% |
-| **Week 4**       | Sep 21 – Sep 27 | Domain 4.3 & 4.4 — Networking + Migrations                | 30–35% |
-| **Week 5**       | Sep 28 – Oct 2  | **Domain 3 — Business Continuity & High Availability**    | 15–20% |
-| **Week 6**       | Oct 3 – Oct 7   | **Domain 1 — Identity, Governance & Monitoring**          | 25–30% |
-| **Sim Block**    | Oct 8 – Oct 11  | Case Studies + MeasureUp Timed Mock Exams                 |   —    |
-| **Final Sprint** | Oct 12 – Oct 15 | Exam Cram v2 + Flashcards + Rest                          |   —    |
-| **EXAM**         | **Oct 16**      | 🎯 AZ-305 — 10:00 AM AEST                                 |   —    |
+| Block | Phase / Timeline | Domain | Weight |
+|---|---|---|:---:|
+| **Week 1** | Days 1–7 | Domain 2.1 — Non-Relational Storage & Cosmos DB | 20–25% |
+| **Week 2** | Days 8–14 | Domain 2.2 & 2.3 — Relational DBs + Data Integration | 20–25% |
+| **Week 3** | Days 15–21 | Domain 4.1 & 4.2 — Compute + App Architecture & Messaging | 30–35% |
+| **Week 4** | Days 22–28 | Domain 4.3 & 4.4 — Networking + Migrations | 30–35% |
+| **Week 5** | Days 29–35 | **Domain 3 — Business Continuity & High Availability** | 15–20% |
+| **Week 6** | Days 36–42 | **Domain 1 — Identity, Governance & Monitoring** | 25–30% |
+| **Sim Block** | Days 43–46 | Case Studies + Full Timed Mock Exams (MeasureUp / Practice Tests) | — |
+| **Final Sprint** | Days 47–49 | Exam Cram v2 + High-Yield Flashcards + Rest | — |
+| **EXAM** | **Target Day** | 🎯 AZ-305 Exam Session | — |
 
 ---
 
-### 📅 Week 1 (Aug 31 – Sep 6) — Domain 2.1: Non-Relational Storage & Cosmos DB
+### 📅 Week 1 — Domain 2.1: Non-Relational Storage & Cosmos DB
 
 **Syllabus Focus:** Cosmos DB consistency + APIs + partitioning, Blob tiers & lifecycle, Azure Files vs. NetApp Files, Storage security
 
 | Day         | Activity                                                                                                                                                                   | Resource                                                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mon (Sep 1) | 🧪 Baseline MS Learn Practice Assessment — diagnostic only, no prep                                                                                                        | [MS Learn Assessment](https://learn.microsoft.com/en-us/credentials/certifications/exams/az-305/practice/assessment?assessment-type=practice&assessmentId=60) |
+| Day 1 (Mon) | 🧪 Baseline MS Learn Practice Assessment — diagnostic only, no prep                                                                                                        | [MS Learn Assessment](https://learn.microsoft.com/en-us/credentials/certifications/exams/az-305/practice/assessment?assessment-type=practice&assessmentId=60) |
 | Mon–Tue     | 📺 Pluralsight: *Designing Non-Relational Data Storage for Microsoft Azure*                                                                                                | Pluralsight AZ-305 Path                                                                                                                                       |
 | Mon–Tue     | 📺 John Savill: Cosmos DB consistency models + API selection                                                                                                               | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP)                                                               |
 | Wed         | 📖 MS Learn: *Design a data storage solution for non-relational data*                                                                                                      | MS Learn AZ-305 Path                                                                                                                                          |
@@ -293,7 +291,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 
 ---
 
-### 📅 Week 2 (Sep 7 – Sep 13) — Domain 2.2 & 2.3: Relational DBs & Data Integration
+### 📅 Week 2 — Domain 2.2 & 2.3: Relational DBs & Data Integration
 
 **Syllabus Focus:** Azure SQL DB vs. MI vs. Hyperscale, Elastic Pools, Geo-Replication vs. Failover Groups, Synapse, ADF, Data Lake Gen2
 
@@ -316,18 +314,15 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 
 ---
 
-### 📅 Week 3 (Sep 14 – Sep 20) — Domain 4.1 & 4.2: Compute, Containers & App Architecture
+### 📅 Week 3 — Domain 4.1 & 4.2: Compute, Containers & App Architecture
 
 **Syllabus Focus:** Compute Decision Tree (VMs, App Service, ASE, ACA, AKS, Functions, Batch), VMSS, Event Grid/Hubs/Service Bus, APIM, Key Vault
-
-> ⚠️ **CONCURRENT MILESTONE:** Complete **AZ-500 Renewal** on MS Learn before **Sep 18** (🔴 Urgent — 18 days left)
 
 | Day | Activity | Resource |
 |---|---|---|
 | Mon–Tue | 📺 Pluralsight: *Designing Compute Solutions for Microsoft Azure* | Pluralsight AZ-305 Path |
 | Mon–Tue | 📺 John Savill: Compute architecture — App Service vs. ACA vs. AKS deep-dive | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
 | Mon | 📖 Read: [Azure Compute Decision Tree](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree) | Bookmark and annotate |
-| Tue | ⚠️ Complete **AZ-500 Renewal** assessment on MS Learn | [MS Learn AZ-500 Renewal](https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/) |
 | Tue | 📖 Read: VMSS Flexible vs. Uniform orchestration, AKS CNI vs. Kubenet, ACA KEDA scaling | MS Learn Compute Path |
 | Wed | 📺 Pluralsight: *Designing Application Architecture for Microsoft Azure* | Pluralsight AZ-305 Path |
 | Wed | 📺 John Savill: Event Grid vs. Event Hubs vs. Service Bus decision | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
@@ -341,7 +336,7 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 
 ---
 
-### 📅 Week 4 (Sep 21 – Sep 27) — Domain 4.3 & 4.4: Networking & Migrations
+### 📅 Week 4 — Domain 4.3 & 4.4: Networking & Migrations
 
 **Syllabus Focus:** Load Balancing (Front Door vs. App Gateway vs. Traffic Manager vs. ALB), Virtual WAN vs. Hub-Spoke, ExpressRoute, Private Endpoints, Azure Migrate, DMS
 
@@ -366,15 +361,12 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 
 ---
 
-### 📅 Week 5 (Sep 28 – Oct 2) — Domain 3: Business Continuity & High Availability
+### 📅 Week 5 — Domain 3: Business Continuity & High Availability
 
 **Syllabus Focus:** RTO/RPO design, Azure Site Recovery (ASR), Azure Backup (CRR, vault tiers, Soft Delete, MUA), Storage redundancy (LRS/ZRS/GRS/GZRS), VM Availability Zones vs. Sets, composite SLA
 
-> ⚠️ **CONCURRENT MILESTONE:** Complete **MS-102 & MD-102 Renewals** on MS Learn before **Sep 29** (🔴 Urgent)
-
 | Day | Activity | Resource |
 |---|---|---|
-| Mon (Sep 28) | ⚠️ Complete **MS-102 & MD-102 Renewals** on MS Learn | [MS Learn Renewals](https://learn.microsoft.com/en-us/credentials/certifications/) |
 | Mon | 📺 Pluralsight: *Designing Business Continuity Solutions for Microsoft Azure* | Pluralsight AZ-305 Path |
 | Mon | 📺 John Savill: Azure Site Recovery deep-dive (ASR scenarios, replication policies, test failover) | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
 | Tue | 📖 MS Learn: *Design business continuity solutions* modules | MS Learn AZ-305 Path |
@@ -391,62 +383,62 @@ Apply this exact sequence for **every topic block** in the weekly schedule below
 
 ---
 
-### 📅 Week 6 (Oct 3 – Oct 7) — Domain 1: Identity, Governance & Monitoring
+### 📅 Week 6 — Domain 1: Identity, Governance & Monitoring
 
 **Syllabus Focus:** Entra ID (B2B/B2C, Conditional Access, PIM, Managed Identities), CAF Landing Zones, Management Groups, Azure Policy, Azure Monitor, Log Analytics, Application Insights, KQL
 
-> 💡 **Note:** This is your expert domain (🟢 90%+ baseline). Focus on **confirming architectural design decisions** rather than learning fundamentals from scratch. Fewer videos, more reading + note synthesis.
+> 💡 **Note:** Focus on **confirming architectural design decisions** rather than learning fundamentals from scratch. Fewer videos, more reading + note synthesis.
 
 | Day | Activity | Resource |
 |---|---|---|
-| Sat Oct 3 | 📺 Pluralsight: *Designing Identity, Governance & Monitoring Solutions for Microsoft Azure* | Pluralsight AZ-305 Path |
-| Sat Oct 3 | 📺 John Savill: CAF Landing Zones + Management Group hierarchy | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
-| Sun Oct 4 | 📺 John Savill: Azure Monitor architecture, Log Analytics workspace design | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
-| Sun Oct 4 | 📖 Read: [CAF Landing Zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) + [Azure Policy documentation](https://learn.microsoft.com/en-us/azure/governance/policy/) | Domain 1.2 |
-| Mon Oct 5 | 📖 Read: [Entra External ID documentation](https://learn.microsoft.com/en-us/entra/external-id/) — B2B Guest vs. B2C/External ID | Domain 1.1 |
-| Mon Oct 5 | 📖 Read: [MFA mandate for Azure sign-in](https://azure.microsoft.com/en-us/blog/announcing-mandatory-multi-factor-authentication-for-azure-sign-in/) + Conditional Access design | Domain 1.1 |
-| Mon Oct 5 | 📖 Read: [Elevate access to manage subscriptions](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) + PIM for Azure RBAC | Domain 1.1 |
-| Mon Oct 5 | ✍️ Update: [[mscerts/az-305/Identity - Authentication\|Identity - Authentication.md]] — Conditional Access, PIM, Managed Identities, App Registration patterns | Key vault note |
-| Tue Oct 6 | 📖 MS Learn: *Design governance, identity, and monitoring* domain modules | MS Learn AZ-305 Path |
-| Tue Oct 6 | 📖 Read: [KQL learning path](https://learn.microsoft.com/en-us/training/paths/kusto-query-language/) + [KQL for monitoring](https://learn.microsoft.com/en-us/training/paths/analyze-monitoring-data-with-kql/) — first 2 modules each | Domain 1.3 |
-| Tue Oct 6 | ✍️ Update: [[mscerts/az-305/Monitoring - Solutions\|Monitoring - Solutions.md]] — Log Analytics workspace design (centralized vs. decentralized), App Insights, Defender for Cloud ingestion | Key vault note |
-| Wed Oct 7 | ✍️ Note: CAF landing zone architecture + Management Group + Subscription vending decision flow | Add to vault |
-| Wed Oct 7 | 🧪 Tutorials Dojo: Domain 1 — Identity, Governance & Monitoring section test | Target ≥75% |
-| Wed Oct 7 | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
-| Wed Oct 7 | 📖 Review: [AkashHiwale Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Identity & Governance section | Community notes |
+| Day 1–2 | 📺 Pluralsight: *Designing Identity, Governance & Monitoring Solutions for Microsoft Azure* | Pluralsight AZ-305 Path |
+| Day 1–2 | 📺 John Savill: CAF Landing Zones + Management Group hierarchy | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
+| Day 3 | 📺 John Savill: Azure Monitor architecture, Log Analytics workspace design | [Study Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
+| Day 3 | 📖 Read: [CAF Landing Zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/) + [Azure Policy documentation](https://learn.microsoft.com/en-us/azure/governance/policy/) | Domain 1.2 |
+| Day 4 | 📖 Read: [Entra External ID documentation](https://learn.microsoft.com/en-us/entra/external-id/) — B2B Guest vs. B2C/External ID | Domain 1.1 |
+| Day 4 | 📖 Read: [MFA mandate for Azure sign-in](https://azure.microsoft.com/en-us/blog/announcing-mandatory-multi-factor-authentication-for-azure-sign-in/) + Conditional Access design | Domain 1.1 |
+| Day 4 | 📖 Read: [Elevate access to manage subscriptions](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin) + PIM for Azure RBAC | Domain 1.1 |
+| Day 4 | ✍️ Update: [[mscerts/az-305/Identity - Authentication\|Identity - Authentication.md]] — Conditional Access, PIM, Managed Identities, App Registration patterns | Key vault note |
+| Day 5 | 📖 MS Learn: *Design governance, identity, and monitoring* domain modules | MS Learn AZ-305 Path |
+| Day 5 | 📖 Read: [KQL learning path](https://learn.microsoft.com/en-us/training/paths/kusto-query-language/) + [KQL for monitoring](https://learn.microsoft.com/en-us/training/paths/analyze-monitoring-data-with-kql/) — first 2 modules each | Domain 1.3 |
+| Day 5 | ✍️ Update: [[mscerts/az-305/Monitoring - Solutions\|Monitoring - Solutions.md]] — Log Analytics workspace design (centralized vs. decentralized), App Insights, Defender for Cloud ingestion | Key vault note |
+| Day 6 | ✍️ Note: CAF landing zone architecture + Management Group + Subscription vending decision flow | Add to vault |
+| Day 6 | 🧪 Tutorials Dojo: Domain 1 — Identity, Governance & Monitoring section test | Target ≥75% |
+| Day 6 | 🔁 Log wrong answers in [[az-305-quiz\|az-305-quiz.md]] | Record rationale |
+| Day 7 | 📖 Review: [AkashHiwale Notes](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) — Identity & Governance section | Community notes |
 
 ---
 
-### 📅 Sim Block (Oct 8 – Oct 11) — Case Studies & Full Timed Mock Exams
+### 📅 Sim Block — Case Studies & Full Timed Mock Exams
 
 **Focus:** Case study methodology, architectural scenario drills, full timed MeasureUp simulations, MS Learn final assessment
 
-| Day        | Activity                                                                                                                                                          | Resource                                                                                       |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Thu Oct 8  | 📺 John Savill: How to approach AZ-305 case studies (timing, tab strategy)                                                                                        | [Exam Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
-| Thu Oct 8  | 📖 Read: [[mscerts/az-305/Azure Well-Architected Framework\|Azure Well-Architected Framework.md]] — all 5 pillars (Reliability, Security, Cost, Performance, Ops) | In-vault reference                                                                             |
-| Thu Oct 8  | 📖 Scan: [Azure Architecture Center reference architectures](https://learn.microsoft.com/en-us/azure/architecture/) — all key decision trees                      | Compute, storage, network                                                                      |
-| Fri Oct 9  | 🧪 **MeasureUp Full Timed Mock Exam 1** (full exam conditions — no pausing)                                                                                       | Target: ≥80%                                                                                   |
-| Fri Oct 9  | 🔁 Detailed error analysis — document architectural rationale for every wrong answer                                                                              | [[az-305-quiz\|az-305-quiz.md]]                                                 |
-| Sat Oct 10 | 📖 Targeted re-study: weakest domains from Mock 1 — revisit relevant vault notes                                                                                  | All vault note files                                                                           |
-| Sat Oct 10 | 📖 Skim: [timothywarner/az305 labs](https://github.com/timothywarner/az305) — case study lab scenarios                                                            | Lab context                                                                                    |
-| Sat Oct 10 | 🧪 **MeasureUp Full Timed Mock Exam 2** (full exam conditions)                                                                                                    | Target: ≥85%                                                                                   |
-| Sat Oct 10 | 🔁 Error analysis — confirm weak domains are resolved                                                                                                             | [[az-305-quiz\|az-305-quiz.md]]                                                 |
-| Sun Oct 11 | 🧪 **MS Learn Official Practice Assessment** — second run                                                                                                         | Target ≥85%                                                                                    |
-| Sun Oct 11 | 📖 Skim all 4 domain objective checklists in Section 4 — tick off confirmed topics                                                                                | This file                                                                                      |
-| Sun Oct 11 | 📖 Review all decision cheat sheets in Section 6                                                                                                                  | This file                                                                                      |
+| Day | Activity | Resource |
+|---|---|---|
+| Day 1 | 📺 John Savill: How to approach AZ-305 case studies (timing, tab strategy) | [Exam Cram Playlist](https://www.youtube.com/playlist?list=PLlVtbbG169nHSnaP4ae33yQUI3zcmP5nP) |
+| Day 1 | 📖 Read: [[mscerts/az-305/Azure Well-Architected Framework\|Azure Well-Architected Framework.md]] — all 5 pillars (Reliability, Security, Cost, Performance, Ops) | In-vault reference |
+| Day 1 | 📖 Scan: [Azure Architecture Center reference architectures](https://learn.microsoft.com/en-us/azure/architecture/) — all key decision trees | Compute, storage, network |
+| Day 2 | 🧪 **MeasureUp Full Timed Mock Exam 1** (full exam conditions — no pausing) | Target: ≥80% |
+| Day 2 | 🔁 Detailed error analysis — document architectural rationale for every wrong answer | [[az-305-quiz\|az-305-quiz.md]] |
+| Day 3 | 📖 Targeted re-study: weakest domains from Mock 1 — revisit relevant vault notes | All vault note files |
+| Day 3 | 📖 Skim: [timothywarner/az305 labs](https://github.com/timothywarner/az305) — case study lab scenarios | Lab context |
+| Day 3 | 🧪 **MeasureUp Full Timed Mock Exam 2** (full exam conditions) | Target: ≥85% |
+| Day 3 | 🔁 Error analysis — confirm weak domains are resolved | [[az-305-quiz\|az-305-quiz.md]] |
+| Day 4 | 🧪 **MS Learn Official Practice Assessment** — second run | Target ≥85% |
+| Day 4 | 📖 Skim all 4 domain objective checklists in Section 4 — tick off confirmed topics | This file |
+| Day 4 | 📖 Review all decision cheat sheets in Section 6 | This file |
 
 ---
 
-### 📅 Final Sprint (Oct 12 – Oct 15) — Cram & Readiness Validation
+### 📅 Final Sprint — Cram & Readiness Validation
 
 | Day | Activity |
 |---|---|
-| **Mon Oct 12** | 📺 John Savill: [AZ-305 Exam Cram v2](https://www.youtube.com/watch?v=vq9LuCM4YP4) — full 3 hours at 1.25× speed. Pause only on uncertain topics. |
-| **Tue Oct 13** | 🃏 Flashcard blitz: Cosmos DB consistency levels, SQL MI vs. SQL DB decision, load balancer matrix, storage redundancy table, BCDR vault types. Review [[az-305-quiz\|az-305-quiz.md]] error log only. |
-| **Wed Oct 14** | 📖 Light re-read: all 4 domain checklists in Section 4. Case study timing strategy: 25 min per case study, ~1 min per standalone question. |
-| **Thu Oct 15** | 🧘 Short skim of cheat sheets in Section 6. Pack exam setup (webcam, ID, quiet room). No cramming after 8 PM. Early rest. |
-| **Fri Oct 16** | 🎯 **EXAM DAY — 10:00 AM AEST** — AZ-305: Designing Microsoft Azure Infrastructure Solutions (Pearson VUE Online Proctored). Voucher: `MSAIVKCJ5FBC` |
+| **Sprint Day 1** | 📺 John Savill: [AZ-305 Exam Cram v2](https://www.youtube.com/watch?v=vq9LuCM4YP4) — full 3 hours at 1.25× speed. Pause only on uncertain topics. |
+| **Sprint Day 2** | 🃏 Flashcard blitz: Cosmos DB consistency levels, SQL MI vs. SQL DB decision, load balancer matrix, storage redundancy table, BCDR vault types. Review [[az-305-quiz\|az-305-quiz.md]] error log only. |
+| **Sprint Day 3** | 📖 Light re-read: all 4 domain checklists in Section 4. Case study timing strategy: 25 min per case study, ~1 min per standalone question. |
+| **Sprint Day 4 (Eve)** | 🧘 Short skim of cheat sheets in Section 6. Pack exam setup (webcam, ID, quiet room). No cramming after 8 PM. Early rest. |
+| **EXAM DAY** | 🎯 **EXAM DAY** — AZ-305: Designing Microsoft Azure Infrastructure Solutions (Pearson VUE / Test Center). |
 
 ---
 
