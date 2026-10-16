@@ -219,14 +219,14 @@ author: Pralaya Panta
   - **CSPM (Cloud Security Posture Management):** Continuous **Secure Score**, regulatory compliance benchmarks (CIS, NIST, ISO, PCI-DSS), attack path analysis
   - **CWPP (Cloud Workload Protection):** Defender plans for Servers, SQL, Storage, Containers, Key Vault, App Service, and APIs
 
-
-[Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/)
-[Azure Monitor Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
-[Log Analytics Workspace](https://learn.mhttps://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overviewicrosoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
- [Diagnostic Settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings)
-[Data Collection Rules (DCRs) Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview)
-[Log Analytics Workspace Data Export](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
-[VNet Flow Logs in Azure Network Watcher](https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-overview)
+## Quick Links
+- [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/)
+- [Azure Monitor Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
+- [Log Analytics Workspace](https://learn.mhttps://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overviewicrosoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
+- [Diagnostic Settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings)
+- [Data Collection Rules (DCRs) Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview)
+- [Log Analytics Workspace Data Export](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)
+- [VNet Flow Logs in Azure Network Watcher](https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-overview)
 
 
 
