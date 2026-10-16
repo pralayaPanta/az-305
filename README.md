@@ -19,6 +19,7 @@ type: cert-guide
 
 - **Target Credential:** [Microsoft Certified: Azure Solutions Architect Expert](https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/)
 - **Exam Code:** AZ-305
+- **Exam Result:** ✅ **Passed — 811 / 1000** (Oct 16, 2026 | Valid through Oct 16, 2027)
 - **Prerequisites:** [AZ-104: Microsoft Azure Administrator](https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/)
 - **Passing Score:** 700 / 1000
 - **Question Format:** 40–60 questions (Case studies, multiple-choice, multi-select, drag-and-drop, hot-area)
@@ -47,6 +48,7 @@ Comprehensive architectural reference notes organized strictly by official AZ-30
 - [Azure Well-Architected Framework](Azure%20Well-Architected%20Framework.md) — The 5 WAF pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency.
 - [Master Study Plan](305-study-plan.md) — Detailed week-by-week syllabus, topic schedules, and architectural trade-off review guide.
 - [Curated Study Links](Study%20Links.md) — Microsoft Architecture Center decision trees, official exam sandboxes, and reference guides.
+- [AZ-305 NotebookLM Study Notebook](https://notebook.google.com/notebook/2c777205-dcdd-4cce-a869-8e3f84efb353?utm_source=gemini_notebook&utm_medium=referral&pli=1) — Interactive AI notebook and audio review source for AZ-305 architectural concepts.
 
 ### Domain 1: Design Identity, Governance & Monitoring (25–30%)
 - [Identity & Authentication](Identity%20-%20Authentication.md) — Microsoft Entra ID architectures, B2B/B2C/External ID, Managed Identities, and OAuth 2.0 / OIDC delegated flows.

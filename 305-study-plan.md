@@ -51,6 +51,7 @@ These are the **exact resources** that map to every week in this plan:
 | **AZ-305 GitHub Study Notes — AkashHiwale** | [github.com/AkashHiwale/AZ-305](https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes) | Community reference per topic |
 | **AZ-305 GitHub Labs — timothywarner** | [github.com/timothywarner/az305](https://github.com/timothywarner/az305) | Hands-on lab scenarios |
 | **AZ-305 GitHub www42** | [github.com/www42/AZ-305](https://github.com/www42/AZ-305) | Additional useful links & lab materials |
+| **AZ-305 Study Notebook — NotebookLM** | [notebook.google.com](https://notebook.google.com/notebook/2c777205-dcdd-4cce-a869-8e3f84efb353?utm_source=gemini_notebook&utm_medium=referral&pli=1) | Curated interactive AI study notebook & audio overviews |
 
 ### 🧪 Practice & Quizzes
 | Resource                                    | When                                           | Target                   |

@@ -9,7 +9,8 @@ https://github.com/timothywarner/az305
 
 ## Useful links
 
-[www42/AZ-305 Useful Links](https://github.com/www42/AZ-305#useful-links)
+- [AZ-305 Interactive Study Notebook (Google NotebookLM)](https://notebook.google.com/notebook/2c777205-dcdd-4cce-a869-8e3f84efb353?utm_source=gemini_notebook&utm_medium=referral&pli=1)
+- [www42/AZ-305 Useful Links](https://github.com/www42/AZ-305#useful-links)
 
 [Microsoft Entra External ID documentation](https://learn.microsoft.com/en-us/entra/external-id/)
 

@@ -6,7 +6,6 @@ author: Pralaya Panta
 ---
 
 
-
 ```table-of-contents
 ```
 
@@ -41,16 +40,57 @@ author: Pralaya Panta
 	- retains data in - interactive retention and long term retention
 - used to run **Kusto Query Language (KQL)** queries on logs
 - used by services - Monitor, Sentinel, Automation
-- dedicated cluster
-	- if daily ingestion reaches at least 100 GB, implement a dedicated cluster
-	- allows combining data from multiple workspaces in the cluster to reach level of commitment tier
-	- capability
-		- customer managed keys
-		- lockbox
-		- double encryption
-		- availability zones
-		- ingest from azure event hubs
-	- commitment tier pricing model
+
+
+- log tables
+	- multiple tables automatically created to store monitoring data
+
+- data retention in workspace
+	- interactive retention
+		- retrieve data from table using KQL 
+		- available for visualisation, alerts
+	- long term retention
+		- low cost state with basic data
+
+- workspace patterns
+	- dedicated cluster
+		- if daily ingestion reaches at least 100 GB, implement a dedicated cluster
+		- allows combining data from multiple workspaces in the cluster to reach level of commitment tier
+		- capability
+			- customer managed keys
+			- lockbox
+			- double encryption
+			- availability zones
+			- ingest from azure event hubs
+		- commitment tier pricing model
+	- centralised - default
+		- all subs and workloads send logs into a single central workspace
+		- eliminates cross workspace KQL latency
+		- pools ingestion volume to reach Commitment Tier faster
+	- decentralised - multiple workspaces
+		- separate workspace per region or compliance boundary
+		- only recommended when required by Data Sovereignty or regulation
+		- cross-workspace KQL query - supports up to 100 workspace
+
+- data collection rules 
+	- defines what is collected, how to filter and transform it and where to send it
+	- methods
+		- Azure Monitor Agent
+		- Metric export and Diagnostic settings
+		- Logs ingestion API
+
+- cost
+	- no direct cost for creating workspace
+	- charged for ingesting data
+	- charged for data retention
+	- commitment tiers
+		- provide discount to workspace ingestion cost when specific amount of daily data committed
+		- can use single workspace to reach the level
+		- same volume of data spread across workspace would not be eligible
+
+- data access control
+	- resource context RBAC
+	- table level RBAC
 
 
 ## Azure insights Insights
@@ -87,5 +127,5 @@ author: Pralaya Panta
 
 
 [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/)
-
 [Azure Monitor Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
+[Log Analytics Workspace](https://learn.mhttps://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overviewicrosoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
