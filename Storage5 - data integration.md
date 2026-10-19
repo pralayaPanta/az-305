@@ -4,11 +4,12 @@ tags:
   - studynote
 title: Storage - data integration
 author: Pralaya Panta
+updated: 2026-10-17
 ---
-
 
 ```table-of-contents
 ```
+
 
 ## Online Analytical vs Transaction Procession
 

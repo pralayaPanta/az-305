@@ -11,8 +11,6 @@ author: Pralaya Panta
 
 
 ## Features
-
-
 - manage secrets
 	- tokens, passwords, certs, API key
 - manage keys

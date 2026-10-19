@@ -19,7 +19,6 @@ updated: 2026-10-17
 - enforces **multi-stage approval workflows**, **requestor justification**, and **automatic time-bound expiration** (can automatically remove guest accounts when their last Access Package expires)
 
 
-
 ## Access Reviews
 - ensure the correct users have the correct access to the correct resources
 - scheduled recurring recertification of group memberships, application access, or Entra / Azure RBAC roles

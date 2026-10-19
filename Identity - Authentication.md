@@ -10,8 +10,6 @@ author: Pralaya Panta
 ```
 
 
-
-
 ## Microsoft Entra ID
 
 - implement Microsoft Entra ID as a cloud-only identity solution
@@ -86,6 +84,13 @@ author: Pralaya Panta
 		- does not have an associated app registration
 
 
+- delegated permission
+	- app acts on behalf of signedin user 
+	- effective permission is intersection of app permission and user permission
+- application permission 
+	- app runs as a background service without a signed-in user
+	- always requires admin consent
+
 ## Managed Identities
 
 - combines Microsoft Entra authentication and Azure role-based access control (RBAC)
@@ -102,6 +107,29 @@ author: Pralaya Panta
 		- are suited for workloads with resources that are recycled frequently but with consistent permissions
 - example
 	- Use Azure Key Vault with managed identities for Azure resources to enable  Azure web app to access secret configuration values
+
+
+
+##  Authorizing Access to On-Premises Resources
+
+- **Microsoft Entra Application Proxy**
+	  - publishes internal on-premises web applications externally without opening inbound firewall ports or deploying VPNs/DMZ reverse proxies
+	  - **Architecture:** 
+		  - lightweight **Application Proxy Connector** on Windows Server 
+		  - makes **outbound TCP 443** connections only; 
+		  - deploy **2+ connectors in a Connector Group** for high availability
+	  - **Pre-Authentication:** always recommend **Microsoft Entra ID Pre-Authentication** (blocks unauthenticated traffic at the Azure edge and enforces **Conditional Access + MFA** before traffic ever reaches on-premises)
+	  - **Single Sign-On (SSO) to backend on-prem apps:** supports **Kerberos Constrained Delegation (KCD)** (Integrated Windows Auth), Header-based, SAML, and Password Vaulting
+
+
+
+- **Microsoft Entra Private Access (Global Secure Access / ZTNA)**
+	  - modern Zero Trust Network Access (ZTNA) replacement for traditional corporate VPNs
+	  - provides granular per-app, per-port TCP/UDP access to private on-premises and Azure VNet resources with Conditional Access enforcement on every connection
+
+
+- **Microsoft Entra Kerberos (Hybrid Azure Files Authentication)**
+	  - enables hybrid synced users to access **Azure Files (SMB)** using Kerberos tickets issued directly by Microsoft Entra ID without requiring line-of-sight network connectivity to on-premises Domain Controllers
 
 
 [Hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity)
