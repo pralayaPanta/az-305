@@ -32,6 +32,14 @@ author: Pralaya Panta
 	- custom domain names can be added
 	- primary domain format: ***.onmicrosoft.com**
 
+### Administrative Units (Entra ID P1/P2)
+- logical container of Entra users, groups, or devices used to restrict administrative scope (e.g., delegate `Helpdesk Administrator` only to users in the `APAC Administrative Unit`)
+- **Restricted Management Administrative Units:** prevents even tenant-level Global Administrators or Privileged Authentication Administrators from modifying protected executive/sensitive accounts unless explicitly assigned to the AU
+
+### Self-Service Password Reset (SSPR) & Password Writeback
+- allows users to reset or unlock their passwords without helpdesk intervention
+- **Password Writeback:** writes cloud password changes/resets back to on-premises Active Directory in real time (requires **Entra ID P1/P2** and Entra Connect / Cloud Sync)
+
 
 ## Azure Role-Based Access Control (RBAC)
 
@@ -47,12 +55,24 @@ author: Pralaya Panta
 	- own roles using JSON
 	- includes
 		- name, actions, notactions, dataactions, notdataactions, assignablescopes
-	- `{
-		  "Name": "Custom Reader",
-		  "Actions": [ "Microsoft.Resources/subscriptions/resourceGroups/read" ],
-		  "NotActions": [],
-		  "AssignableScopes": ["/subscriptions/{subscriptionId}"]
-		}`
+			```json
+			{
+			  "Name": "Custom Reader",
+			  "Actions": [
+			    "Microsoft.Resources/subscriptions/resourceGroups/read"
+			  ],
+			  "NotActions": [],
+			  "DataActions": [],
+			  "NotDataActions": [],
+			  "AssignableScopes": [
+			    "/subscriptions/{subscriptionId}"
+			  ]
+			}
+			```
+
+### Attribute-Based Access Control (ABAC)
+- builds on Azure RBAC by adding **role assignment conditions** based on resource, principal, or environment attributes (e.g., allow `Storage Blob Data Reader` *only if* blob index tag `Project == Cascade`)
+- reduces role assignment sprawl across thousands of containers/blobs
 
 
 ## Service principals for applications
@@ -90,6 +110,9 @@ author: Pralaya Panta
 - application permission 
 	- app runs as a background service without a signed-in user
 	- always requires admin consent
+
+### Workload Identity Federation (Federated Credentials)
+- allows external workloads (**GitHub Actions**, **Azure DevOps**, **AKS Service Accounts**, AWS/GCP workloads) to authenticate to Entra ID using **OIDC tokens** with **zero secrets or certificates** to rotate
 
 ## Managed Identities
 
@@ -150,7 +173,7 @@ author: Pralaya Panta
 
 - Federation (AD FS or 3rd-Party IdP)
 	- Entra ID redirects user sign-in to an on-premises Federation Server (WS-Federation, SAML 2.0, OIDC)
-	- highest infrastructure overhead (
+	- highest infrastructure overhead
 	- requires redundant AD FS servers + Web Application Proxy servers in DMZ
 	- when to recommend:
 		- legacy on-premises Smartcard / Certificate authentication
@@ -170,6 +193,26 @@ author: Pralaya Panta
 			- require Pass-Through Authentication (PTA)
 			- require Device Synchronization (Microsoft Entra Hybrid Joined devices / Windows Hello for Business hybrid trust)
 			- large directories (>100,000 objects per domain) or complex custom attribute filtering/transformation rules
+
+
+## External Identities 
+
+
+- **Microsoft Entra B2B Collaboration (Guest Users)**
+	- invites external partner users into your workforce tenant as `UserType == Guest`
+	- guests sign in using their own home identity provider (another Entra tenant, Google, SAML/WS-Fed, Email OTP) while authorization is controlled in your resource tenant
+	- Cross-Tenant Access Settings: allows trusting the partner tenant's MFA claims and Device Compliance / Hybrid Join claims so guests aren't prompted to register MFA twice
+	- Billing model: Monthly Active Users (MAU) — first 50,000 MAUs per month are free (including Premium P1/P2 features when linked to an Azure subscription)
+
+
+- **Microsoft Entra B2B Direct Connect**
+	- establishes a mutual two-way trust with another Microsoft Entra organization via Cross-Tenant Access Settings
+	- enables seamless collaboration (e.g., Teams Shared Channels) *without* creating Guest user objects in your directory
+
+- **Microsoft Entra External ID for Customers (CIAM — Replaces legacy Azure AD B2C)**
+	- dedicated customer-facing tenant for consumer and business customer applications
+	- supports custom branded sign-up/sign-in user flows, self-service registration, and social identity providers (Google, Facebook, Apple, custom OIDC/SAML)
+	- isolates consumer accounts completely from internal corporate workforce directory
 
 
 [Hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity)

@@ -163,6 +163,17 @@ author: Pralaya Panta
 	- SQL Server Integration Services (SSIS)
 	- SQL Server Reporting Services (SSRS) and
 	- SQL Server Analysis Services (SSAS)
+- **Managed Disk Host Caching optimization:**
+	- **Data disks (`.mdf`):** set host caching to **`ReadOnly`**
+	- **Transaction Log disks (`.ldf`):** set host caching to **`None`**
+- **SQL IaaS Agent Extension:** automates patching, backups, Azure Key Vault integration, and Azure Hybrid Benefit license switching
+
+
+## Open-Source Managed Relational Databases (Flexible Server)
+- **Azure Database for PostgreSQL – Flexible Server:**
+	- cloud-native PaaS supporting **Zone-Redundant High Availability** (automatic standby replica in another Availability Zone), Burstable / General Purpose / Memory Optimized compute tiers, stop/start compute to save costs, and custom maintenance windows
+- **Azure Database for MySQL – Flexible Server:**
+	- supports **Same-Zone** and **Zone-Redundant High Availability**, read replicas (up to 10), and auto-scaling IOPS (replaces retired Single Server and retired Azure Database for MariaDB)
 
 
 ### SQL Server HADR features
@@ -198,7 +209,7 @@ author: Pralaya Panta
 	- does not require Windows Server Failover Cluster or Pacemaker
 	- no native listener 
 	- process
-		- takes full backup of primary db and restores in secondary server using norecovery or standby nmode
+		- takes full backup of primary db and restores in secondary server using norecovery or standby mode
 		- agent jobs automatically copy transaction log 
 		- application must change the connection string or network level DNS alias change
 
@@ -207,19 +218,29 @@ author: Pralaya Panta
 
 - data discovery, classification, and protection
 - transparent data encryption (TDE)
-	- protects Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics against the threat of malicious offline activity by encrypting data at rest.
+	- protects Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics against the threat of malicious offline activity by encrypting data at rest
 	- performs real time encryption and decryption of the database, backups, log files at rest
-	- enabled by default to all newly deployed azure SQL database
-- Encryption
-	- data at rest
-		- always encrypted
-		- transparent data encryption TDE
-	- data in motion
-		- always encrypted
-		- transport layer security TLS 1.2 or higher
-	- data in process
-		- dynamic data masking
-		- specific data is unencrypted; remaining data is encrypted
+	- enabled by default to all newly deployed azure SQL database (supports Service-Managed Keys or **Customer-Managed Keys [CMK]** in Azure Key Vault)
+- **Azure SQL Ledger:**
+	- provides cryptographic tamper-evidence (SHA-256 Merkle tree digests stored in Azure Confidential Ledger or Immutable Blob Storage) for regulatory audit trails (`Updatable Ledger Tables` vs. `Append-Only Ledger Tables`)
+- **Encryption Layers:**
+	- Data at rest:
+		- Transparent Data Encryption (TDE)
+		- Always Encrypted (ciphertext remains encrypted on disk)
+	- Data in motion (in transit):
+		- Transport Layer Security (TLS 1.2 or higher)
+		- Always Encrypted
+	- Data in use / in process (client-side encryption):
+		- Always Encrypted: encrypts sensitive columns inside the client driver so plaintext keys and data are never visible to the SQL engine or DBAs
+			- Deterministic encryption: always generates the same ciphertext for a given plaintext value (supports `WHERE =`, `JOIN`, `GROUP BY`, and indexing)
+			- Randomized encryption: generates different ciphertext every time for the same plaintext (highest security; does not support equality searches, joins, or indexing without Secure Enclaves)
+		- Always Encrypted with Secure Enclaves: uses a protected VBS or Intel SGX memory enclave inside the SQL process to allow rich confidential queries (`LIKE`, range comparisons `< >`, indexing) and in-place encryption on encrypted columns
+- Presentation-Layer Obfuscation & Access Filtering (Not Encryption):
+	- Dynamic Data Masking (DDM): 
+		- masks sensitive data in query result sets at the presentation layer for non-privileged users 
+		- 4 mask types: Default, Email, Random, Custom String; underlying data in the database remains unencrypted
+	- Row-Level Security (RLS): 
+		- uses inline table-valued security predicate functions (`FILTER PREDICATE` and `BLOCK PREDICATE`) inside the database engine to restrict which rows a specific user or tenant can query or modify
 
 
 

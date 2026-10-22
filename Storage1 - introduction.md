@@ -54,23 +54,16 @@ author: Pralaya Panta
 	- object metadata is also encrypted
 - key rotation supported
 - types
-
-	|Type     |Description     |
-	| --- | --- |
-	|   **at-rest**  |   SSE with Microsoft-managed keys (default)  |
-	|   **customer managed keys**  |   use azure key vault  |
-	|   **in transit**  |   TLS HTTPS enforced  |
-
-
+	- **At-rest:** SSE with Microsoft-managed keys (default)
+	- **Customer-managed keys (CMK):** use Azure Key Vault or Managed HSM
+	- **In transit:** TLS 1.2+ / HTTPS enforced
 - key management
 	- **Microsoft-Managed Keys (MMK):** The default option where Azure handles the security, rotation, and lifecycle of your keys.
 	- **Customer-Managed Keys (CMK):** Use Azure Key Vault or Key Vault HSM to store the key
 		- gives full control over access to your encryption keys and encrypted data.
-
-- transparent data encryption (TDE)
-	- protects Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics against the threat of malicious offline activity by encrypting data at rest.
-	- performs real time encryption and decryption of the database, backups, log files at rest
-	- enabled by default to all newly deployed azure SQL database
+- **Encryption Scopes & Infrastructure Encryption:**
+	- **Encryption Scopes:** allows encrypting individual **containers or individual blobs** within the *same* Storage Account using **different Customer-Managed Keys (CMK)** (ideal for multi-tenant SaaS where each customer brings their own key in Key Vault)
+	- **Infrastructure Encryption (Double Encryption):** encrypts storage data **twice** (once at the service layer and once at the physical infrastructure layer) using two different encryption algorithms and two different keys for strict regulatory compliance (must be enabled at Storage Account creation or Encryption Scope creation)
 
 ## Azure storage redundancy
 
@@ -118,12 +111,22 @@ author: Pralaya Panta
 
 ### Type and redundancy
 
-| **Type**                    | **Supported services**                                                                    | **Redundancy Options**               | **Usage**                                                                                                                                                                                                                                 |
-| --------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Standard general-purpose v2 | Blob Storage (including Data Lake Storage), Queue Storage, Table Storage, and Azure Files | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Azure Storage. If you want support for network file system (NFS) in Azure Files, use the premium file shares account type. |
-| Premium block blobs         | Blob Storage (including Data Lake Storage)                                                | LRS, ZRS                             | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transaction rates or that use smaller objects or require consistently low storage latency.                                             |
-| Premium file shares         | Azure Files                                                                               | LRS, ZRS                             | Premium storage account type for file shares only. Recommended for high-scale or high-performance applications. Use this account type if you want a storage account that supports both Server Message Block (SMB) and NFS file shares.    |
-| Premium page blobs          | Page blobs only                                                                           | LRS                                  | Premium storage account type for page blobs only.                                                                                                                                                                                         |
+- **Standard general-purpose v2**
+	- **Supported services:** Blob Storage (including Data Lake Storage Gen2), Queue Storage, Table Storage, and Azure Files
+	- **Redundancy options:** `LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS`
+	- **Usage:** standard storage account type for blobs, file shares, queues, and tables; recommended for most scenarios using Azure Storage
+- **Premium block blobs**
+	- **Supported services:** Blob Storage (including Data Lake Storage Gen2)
+	- **Redundancy options:** `LRS, ZRS`
+	- **Usage:** premium SSD storage account type for block blobs and append blobs; recommended for high transaction rates, smaller objects, or consistently low storage latency
+- **Premium file shares**
+	- **Supported services:** Azure Files only
+	- **Redundancy options:** `LRS, ZRS`
+	- **Usage:** premium SSD storage account type for high-scale, high-performance enterprise file shares; supports both **SMB** and **NFSv4.1** protocols
+- **Premium page blobs**
+	- **Supported services:** Page blobs only
+	- **Redundancy options:** `LRS, ZRS`
+	- **Usage:** premium SSD storage account type for random read/write page blob workloads and unmanaged/custom VHD disks
 
 ## Azure storage services
 - **Azure Blobs**: A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.

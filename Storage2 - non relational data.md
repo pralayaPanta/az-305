@@ -166,15 +166,13 @@ author: Pralaya Panta
 
 - encryption option
 	- azure disk encryption ADE
-		- encrypts VM virtual hard disk VHD
+		- guest OS-level encryption using **BitLocker (Windows)** or **DM-Crypt (Linux)** inside the VM (consumes guest VM CPU; cannot be combined with Encryption at Host on the same disk)
 		- if VHD is protected with ADE the disk image is accessible only by the VM that owns it
 	- server side encryption SSE
-		- performed on physical disk in the data centre
+		- enabled by default on **all** Managed Disks at the storage cluster level (encrypts data at rest using PMK or CMK; does not encrypt the VM host's temporary disk or OS/data disk caches)
 		- known as encryption at rest or azure storage encryption
 	- encryption at host
-		- ensures data stored in VM host is encrypted at rest
-		- are not encrypted with SSE
-		- the server hosting VM provides encryption and encrypted data flows into azure storage
+		- encrypts the VM's **Temporary Disk**, **Ephemeral OS Disk**, and **OS/Data disk caches** end-to-end on the Azure physical hypervisor host *before* data flows into Azure Storage (zero guest VM CPU penalty; works alongside SSE)
 - data caching
 	- optimizes read and write access to the virtual hard disk (VHD) files
 	- for OS disk default cache settings is ReadWrite
@@ -183,14 +181,41 @@ author: Pralaya Panta
 	- changing the cache settings of azure disk detaches & reattaches the target disk
 		- if OS disk the VM is restarted
 
-## Azure NetApp
-- support for both SMB and NFS protocols, built-in data deduplication and compression, and high-performance storage capabilities.
+## Azure NetApp Files (ANF)
+- enterprise-grade, bare-metal high-performance file storage 
+- SMB 2.1/3.x, `NFSv3`, NFSv4.1, or **Dual-Protocol SMB+NFS****
+- built-in data deduplication and compression
+- **4 Service Levels (Performance Tiers — based on provisioned TiB capacity):**
+	- **Standard:** **16 MiB/s** throughput per provisioned TiB
+	- **Premium:** **64 MiB/s** throughput per provisioned TiB
+	- **Ultra:** **128 MiB/s** throughput per provisioned TiB
+	- **Flexible:** allows sizing throughput (`MiB/s`) **independently** from storage capacity (`TiB`)
+
+- Dynamic Tiering: 
+	- volumes can be moved dynamically between Capacity Pools of different Service Levels online with zero downtime
+- Data Protection & Replication:
+	- instant space-efficient Snapshots and Azure NetApp Files Backup
+	- Cross-Region Replication (CRR) and Cross-Zone Replication (CZR) (asynchronous block-level replication via SnapMirror without consuming host VM CPU or VNet bandwidth)
+- When to recommend ANF over Azure Files: 
+	- ultra-low sub-millisecond latency workloads 
+	- SAP HANA, Oracle, HPC, EDA, large enterprise AVD FSLogix profiles
 
 
-## Storage Security
+## Storage Security & Data Protection
 
 - Shared Access Signatures (SAS)
 	- provides temporary, secure, and granular control over client access to specific resources without revealing your account keys
+	- **3 SAS Types:**
+		- **User Delegation SAS (Best Practice / Most Secure):** signed using **Microsoft Entra ID credentials** instead of the Storage Account key (supports Blob and ADLS Gen2; immune to storage account key compromise)
+		- **Service SAS:** signed with the Storage Account key; grants access to a single storage service (Blob, Queue, Table, or File)
+		- **Account SAS:** signed with the Storage Account key; grants access across one or more services and supports service-level operations (such as creating containers)
+	- **Stored Access Policy:**
+		- defines start time, expiry time, and permissions on the container/share/queue/table server-side so you can **revoke or modify a Service SAS immediately** without rotating the entire Storage Account key
+- **Blob Data Protection Quartet:**
+	- **Blob Soft Delete:** retains deleted blobs, snapshots, and versions for **1–365 days**
+	- **Container Soft Delete:** retains accidentally deleted containers and their contents for **1–365 days**
+	- **Blob Versioning:** automatically saves a previous version of a blob on every write/overwrite
+	- **Point-in-Time Restore (PitR) for Block Blobs:** restores a subset or all block blobs in a storage account to their exact state at a specific timestamp within the retention window (**requires enabling Blob Versioning, Blob Change Feed, and Blob Soft Delete**)
 - Firewalls & Network Rules
 	- Protects the public endpoint by restricting access to trusted IP ranges, individual IPs, or specified VNet subnets. 
 - Secure Transfer (HTTPS)
