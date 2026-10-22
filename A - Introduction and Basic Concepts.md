@@ -138,3 +138,18 @@ author: Pralaya Panta
 	- limitation
 		- not inherited from resource group to resource
 		- tags are case insensitive but stored as entered
+
+
+
+## Azure Resource Locks
+
+- prevents accidental deletion or modification of critical Azure resources
+- 2 Lock Types:
+	- `CanNotDelete` (Delete Lock): authorized users can read and modify the resource normally, but cannot delete it
+	- `ReadOnly` (Read-Only Lock): authorized users can only read the resource; blocks all `POST` and `PUT/PATCH/DELETE` ARM control-plane operations
+
+- putting a `ReadOnly` lock 
+	- on a Storage Account prevents users from listing storage account keys (`listKeys` is an ARM `POST` operation), which breaks Azure Portal browsing of blobs/containers if using key authentication
+	- on a Resource Group containing Virtual Machines prevents starting, stopping, restarting, or resizing VMs
+- Resource Locks apply only to the ARM Control Plane 
+	- a `CanNotDelete` or `ReadOnly` lock on a SQL Database or Storage Account does not prevent a user with data-plane permissions from running `DROP TABLE` inside SQL or deleting blobs via the data plane

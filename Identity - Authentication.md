@@ -121,15 +121,55 @@ author: Pralaya Panta
 	  - **Pre-Authentication:** always recommend **Microsoft Entra ID Pre-Authentication** (blocks unauthenticated traffic at the Azure edge and enforces **Conditional Access + MFA** before traffic ever reaches on-premises)
 	  - **Single Sign-On (SSO) to backend on-prem apps:** supports **Kerberos Constrained Delegation (KCD)** (Integrated Windows Auth), Header-based, SAML, and Password Vaulting
 
-
-
 - **Microsoft Entra Private Access (Global Secure Access / ZTNA)**
 	  - modern Zero Trust Network Access (ZTNA) replacement for traditional corporate VPNs
 	  - provides granular per-app, per-port TCP/UDP access to private on-premises and Azure VNet resources with Conditional Access enforcement on every connection
 
-
 - **Microsoft Entra Kerberos (Hybrid Azure Files Authentication)**
 	  - enables hybrid synced users to access **Azure Files (SMB)** using Kerberos tickets issued directly by Microsoft Entra ID without requiring line-of-sight network connectivity to on-premises Domain Controllers
+
+
+## Hybrid Authentication Methods
+
+
+- Password Hash Synchronization (PHS)
+	- syncs a hash-of-a-hash (SHA-256 + per-user salt, 1,000 HMAC-SHA256 iterations) of on-premises AD passwords to Microsoft Entra ID
+	- authentication occurs entirely in the cloud (users can still sign in if on-premises AD or network goes offline)
+	- required for Leaked Credentials detection in Microsoft Entra ID Protection
+	- supports Seamless SSO
+
+- Pass-Through Authentication (PTA)
+	-  validates user passwords directly against on-premises Active Directory 
+		- using lightweight PTA agents installed on-premises 
+		- outbound TCP 443 only; 
+		- deploy 3+ agents for high availability
+	  - when to recommend:
+	    - strict regulatory/security requirement that password hashes must never leave on-premises
+	    - need immediate enforcement of on-premises AD user states, logon hours, and account lockouts without waiting for sync intervals
+	  - supports Seamless SSO; can enable PHS alongside PTA as an automated cloud disaster recovery fallback
+
+- Federation (AD FS or 3rd-Party IdP)
+	- Entra ID redirects user sign-in to an on-premises Federation Server (WS-Federation, SAML 2.0, OIDC)
+	- highest infrastructure overhead (
+	- requires redundant AD FS servers + Web Application Proxy servers in DMZ
+	- when to recommend:
+		- legacy on-premises Smartcard / Certificate authentication
+		- existing third-party MFA solutions tightly integrated with AD FS
+		- complex multi-forest or non-AD identity stores requiring custom claim rules
+
+
+## Hybrid Directory Synchronization Tools
+
+- Microsoft Entra Cloud Sync
+	- lightweight provisioning agent managed entirely from the Microsoft Entra admin center in the cloud
+	- supports **disconnected multi-forest AD environments** (no network connectivity or forest trusts required between AD forests)
+	- built-in high availability by deploying multiple active provisioning agents
+- Microsoft Entra Connect Sync
+	- full synchronization engine installed and managed on an on-premises Windows Server
+		- when to recommend over Cloud Sync:
+			- require Pass-Through Authentication (PTA)
+			- require Device Synchronization (Microsoft Entra Hybrid Joined devices / Windows Hello for Business hybrid trust)
+			- large directories (>100,000 objects per domain) or complex custom attribute filtering/transformation rules
 
 
 [Hybrid identity](https://learn.microsoft.com/en-us/entra/identity/hybrid/whatis-hybrid-identity)
