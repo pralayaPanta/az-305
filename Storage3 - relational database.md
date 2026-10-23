@@ -4,6 +4,7 @@ tags:
   - az-305
 title: Storage - relational database
 author: Pralaya Panta
+updated: 2026-10-23
 ---
 
 ```table-of-contents
@@ -11,7 +12,7 @@ author: Pralaya Panta
 
 
 
-# PaaS options for SQL Server in Azure
+## PaaS options for SQL Server in Azure
 
 - Azure SQL Database
 - Azure SQL Managed Instance
@@ -33,9 +34,9 @@ author: Pralaya Panta
 	- DTU - database transaction unit
 		- combined measure of compute, storage and IO resources
 		- easy and preconfigured purchase option
-		- tiers 
-			- basic 
-			- standard 
+		- tiers
+			- basic
+			- standard
 			- premium
 	- Serverless
 		- available for general purpose & hyperscale db
@@ -46,12 +47,12 @@ author: Pralaya Panta
 			- use setting called autopause delay (between 60min to 7 days)
 - can deploy
 	- single database
-		- single db managed per db level 
+		- single db managed per db level
 		- have dedicated resources even if deployed to the same logical server
 	- elastic pool
 		- group of db manage and share common set of resource
-		- cost effective solution 
-- when to use 
+		- cost effective solution
+- when to use
 	- cloud native and modern app development
 	- fully managed db without managing logical servers or instance level config
 
@@ -75,7 +76,7 @@ author: Pralaya Panta
 	- instance pool
 		- resource sharing between multiple instance to optimise cost
 		- fully managed service
-- can use managed instance to do <u>**lift shift migration**</u>
+- can use managed instance to do lift shift migration
 - can be used where instance scoped feature is ideal
 	- SQL server agent
 	- common language runtime CLR
@@ -92,25 +93,28 @@ author: Pralaya Panta
 - change resources allocated such as CPU power, memory, I/O throughput, and storage with minimal downtime
 - dynamic scalability for an Azure SQL database
 	- choose DTU or vCore models
-	- use elastic database pools 
+	- use elastic database pools
 	- implement vertical or horizontal scaling
 - vertical scaling - scaling up
-	- increase or decrease the compute size of database 
+	- increase or decrease the compute size of database
 	- using SQL database elastic database pools
 - horizontal scaling - scaling out
 	- add or remove databases to adjust capacity
 	- using sharding to partition data or read scale-out provisioning
+- read scale-out
+	- offloads read-only reporting/analytics queries to a built-in read-only replica using `ApplicationIntent=ReadOnly` in the connection string without impacting the primary read-write workload
+	- included automatically at no extra cost on Business Critical (or Premium DTU) and Hyperscale (when at least 1 HA secondary replica is provisioned)
 - sharding
 	- splits data horizontally across multiple databases for independent scaling
 	- distributes the data & compute workload across multiple distinct database server
 	- shard map manager helps app find the right database using the sharding key
-		- **Elastic Database Client Library** - Shard Map Manager
+		- Elastic Database Client Library - Shard Map Manager
 
 - example scenario
-	- manage & scale multiple azure SQL database that have varying & predictable resource requirements - **SQL elastic pools**
-	- developing new app with single db to test before launching - **SQL Database or Managed Instance**
-	- optimise the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database - **SQL elastic pools**
-	- different sections of a database reside in different geographic locations for compliance reasons - **horizontal scaling and sharding**
+	- manage & scale multiple azure SQL database that have varying & predictable resource requirements - SQL elastic pools
+	- developing new app with single db to test before launching - SQL Database or Managed Instance
+	- optimise the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database - SQL elastic pools
+	- different sections of a database reside in different geographic locations for compliance reasons - horizontal scaling and sharding
 
 
 ## High Availability
@@ -135,7 +139,7 @@ author: Pralaya Panta
 	- auto scale storage & scale
 	- captures instantaneous backups using snapshots
 	- restores in minutes rather than hours & days
-	- scale up or down in real time 
+	- scale up or down in real time
 
 ## Active geo-replication and Failover groups
 
@@ -154,7 +158,7 @@ author: Pralaya Panta
 	- failover without connection string changes
 
 
-# SQL Server on Azure Virtual Machines 
+## SQL Server on Azure Virtual Machines
 - runs on an Azure VM
 	- use full version of SQL server
 	- access to the full capabilities of SQL server
@@ -163,24 +167,24 @@ author: Pralaya Panta
 	- SQL Server Integration Services (SSIS)
 	- SQL Server Reporting Services (SSRS) and
 	- SQL Server Analysis Services (SSAS)
-- **Managed Disk Host Caching optimization:**
-	- **Data disks (`.mdf`):** set host caching to **`ReadOnly`**
-	- **Transaction Log disks (`.ldf`):** set host caching to **`None`**
-- **SQL IaaS Agent Extension:** automates patching, backups, Azure Key Vault integration, and Azure Hybrid Benefit license switching
+- Managed Disk Host Caching optimization:
+	- Data disks (`.mdf`): set host caching to `ReadOnly`
+	- Transaction Log disks (`.ldf`): set host caching to `None`
+- SQL IaaS Agent Extension: automates patching, backups, Azure Key Vault integration, and Azure Hybrid Benefit license switching
 
 
 ## Open-Source Managed Relational Databases (Flexible Server)
-- **Azure Database for PostgreSQL – Flexible Server:**
-	- cloud-native PaaS supporting **Zone-Redundant High Availability** (automatic standby replica in another Availability Zone), Burstable / General Purpose / Memory Optimized compute tiers, stop/start compute to save costs, and custom maintenance windows
-- **Azure Database for MySQL – Flexible Server:**
-	- supports **Same-Zone** and **Zone-Redundant High Availability**, read replicas (up to 10), and auto-scaling IOPS (replaces retired Single Server and retired Azure Database for MariaDB)
+- Azure Database for PostgreSQL – Flexible Server:
+	- cloud-native PaaS supporting Zone-Redundant High Availability (automatic standby replica in another Availability Zone), Burstable / General Purpose / Memory Optimized compute tiers, stop/start compute to save costs, and custom maintenance windows
+- Azure Database for MySQL – Flexible Server:
+	- supports Same-Zone and Zone-Redundant High Availability, read replicas (up to 10), and auto-scaling IOPS (replaces retired Single Server and retired Azure Database for MariaDB)
 
 
 ### SQL Server HADR features
 
 
 - Always On Failover Cluster Instance (FCI)
-	- instance level protection 
+	- instance level protection
 	- single copy of databases stored on shared storage
 	- needs to be configured when database is first installed
 	- requires
@@ -207,23 +211,23 @@ author: Pralaya Panta
 - Log Shipping
 	- database protection
 	- does not require Windows Server Failover Cluster or Pacemaker
-	- no native listener 
+	- no native listener
 	- process
 		- takes full backup of primary db and restores in secondary server using norecovery or standby mode
-		- agent jobs automatically copy transaction log 
+		- agent jobs automatically copy transaction log
 		- application must change the connection string or network level DNS alias change
 
 
-# Database Security and recovery
+## Database Security and recovery
 
 - data discovery, classification, and protection
 - transparent data encryption (TDE)
 	- protects Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics against the threat of malicious offline activity by encrypting data at rest
 	- performs real time encryption and decryption of the database, backups, log files at rest
-	- enabled by default to all newly deployed azure SQL database (supports Service-Managed Keys or **Customer-Managed Keys [CMK]** in Azure Key Vault)
-- **Azure SQL Ledger:**
+	- enabled by default to all newly deployed azure SQL database (supports Service-Managed Keys or Customer-Managed Keys [CMK] in Azure Key Vault)
+- Azure SQL Ledger:
 	- provides cryptographic tamper-evidence (SHA-256 Merkle tree digests stored in Azure Confidential Ledger or Immutable Blob Storage) for regulatory audit trails (`Updatable Ledger Tables` vs. `Append-Only Ledger Tables`)
-- **Encryption Layers:**
+- Encryption Layers:
 	- Data at rest:
 		- Transparent Data Encryption (TDE)
 		- Always Encrypted (ciphertext remains encrypted on disk)
@@ -236,10 +240,10 @@ author: Pralaya Panta
 			- Randomized encryption: generates different ciphertext every time for the same plaintext (highest security; does not support equality searches, joins, or indexing without Secure Enclaves)
 		- Always Encrypted with Secure Enclaves: uses a protected VBS or Intel SGX memory enclave inside the SQL process to allow rich confidential queries (`LIKE`, range comparisons `< >`, indexing) and in-place encryption on encrypted columns
 - Presentation-Layer Obfuscation & Access Filtering (Not Encryption):
-	- Dynamic Data Masking (DDM): 
-		- masks sensitive data in query result sets at the presentation layer for non-privileged users 
+	- Dynamic Data Masking (DDM):
+		- masks sensitive data in query result sets at the presentation layer for non-privileged users
 		- 4 mask types: Default, Email, Random, Custom String; underlying data in the database remains unencrypted
-	- Row-Level Security (RLS): 
+	- Row-Level Security (RLS):
 		- uses inline table-valued security predicate functions (`FILTER PREDICATE` and `BLOCK PREDICATE`) inside the database engine to restrict which rows a specific user or tenant can query or modify
 
 
@@ -247,9 +251,9 @@ author: Pralaya Panta
 ## Backup and recovery for databases
 
 - Database Backups are taken on a given schedule:
-	- **Full –** Once a week
-	- **Differential –** Every 12 hours
-	- **Log –** Every 5-10 minutes depending on transaction log activity
+	- Full – Once a week
+	- Differential – Every 12 hours
+	- Log – Every 5-10 minutes depending on transaction log activity
 
 
 - long term retention policy

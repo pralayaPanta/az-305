@@ -2,8 +2,9 @@
 tags:
   - studynote
   - az-305
-title:
+title: A - Introduction and Basic Concepts
 author: Pralaya Panta
+updated: 2026-10-23
 ---
 
 
@@ -21,11 +22,11 @@ author: Pralaya Panta
 	- max. amount of time available to bring resources online after an outage or problem
 
 - Recovery Point Objective (RPO)
-	- point in time to which database should be recovered ad equates to max amount of data loss that business is willing to accept
+	- point in time to which database should be recovered and equates to max amount of data loss that business is willing to accept
 
 ### Availability Sets
 - provide uptime against azure related maintenance and single point of failure
-- designed to enhance the reliability and availability of virtual machines by separating them into 
+- designed to enhance the reliability and availability of virtual machines by separating them into
 	- fault domains (FD)
 		- groups of servers within a data center that share the same power source and network
 		- each data center can have up to three fault domains
@@ -47,8 +48,8 @@ author: Pralaya Panta
 - Always On Failover Cluster Instance (FCI)
 	- Provides instance-level protection by restarting the entire SQL Server instance on an alternate cluster node during a failover
 - Always On Availability Group (AG)
-	- Provides **database-level** protection
-	- Uses an **AG Listener** (IP and virtual name) for client connectivity abstraction.
+	- Provides database-level protection
+	- Uses an AG Listener (IP and virtual name) for client connectivity abstraction.
 	- Non-database objects (e.g., SQL Agent jobs, instance-level logins, linked servers) are not captured in the transaction log and must be manually synced across nodes
 - Log Shipping
 	- based on backup, copy, and restore,
@@ -66,41 +67,41 @@ author: Pralaya Panta
 - US DoD Central, US Gov Virginia, US Gov Arizona
 	- physical and logical network-isolated instances of Azure for U.S. government agencies and partners
 - China East, China North, and more
-	-  unique partnership between Microsoft and 21Vianet
+	- unique partnership between Microsoft and 21Vianet
 ## Cloud Hosting
-- **IaaS (Infrastructure as a Service)**:
-    - Consumer manages most (OS, apps, security).
-- **PaaS (Platform as a Service)**:
-    - Shared management (apps and data by consumer, platform by provider).
-- **SaaS (Software as a Service)**:
-    - Provider manages almost everything.
-    - Consumer focuses on data and access.
+- IaaS (Infrastructure as a Service):
+	- Consumer manages most (OS, apps, security).
+- PaaS (Platform as a Service):
+	- Shared management (apps and data by consumer, platform by provider).
+- SaaS (Software as a Service):
+	- Provider manages almost everything.
+	- Consumer focuses on data and access.
 
 [Shared Responsibility Chart](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
 
 
 ## Azure Compute Intro
 
-- **Azure Virtual Machines**: 
+- Azure Virtual Machines:
 	- Deploy and manage virtual machines inside an Azure virtual network
-- **Azure Batch**: 
+- Azure Batch:
 	- Apply this managed service to run large-scale parallel and high-performance computing (HPC) applications
-- **Azure App Service**: 
+- Azure App Service:
 	- Host web apps, mobile app backends, RESTful APIs, or automated business processes with this managed service
-- **Azure Functions**: 
+- Azure Functions:
 	- Use this managed service to run code in the cloud, without worrying about the infrastructure
-- **Azure Logic Apps**: 
-	- Configure this cloud-based _platform_ to create and run automated workflows similar to capabilities in Azure Functions
-- **Azure Container Instances (ACI)**: 
+- Azure Logic Apps:
+	- Configure this cloud-based platform to create and run automated workflows similar to capabilities in Azure Functions
+- Azure Container Instances (ACI):
 	- Run containers in Azure in a fast and simple manner without creating virtual machines or relying on a higher-level service
-- **Azure Container Apps (ACA)**: 
-	- Run containerized applications on a fully managed serverless platform without managing Kubernetes infrastructure. 
+- Azure Container Apps (ACA):
+	- Run containerized applications on a fully managed serverless platform without managing Kubernetes infrastructure.
 	- Supports scale-to-zero, Dapr integration, jobs, and revision-based traffic management
-- **Azure Kubernetes Service (AKS)**: 
+- Azure Kubernetes Service (AKS):
 	- Run containerized applications with this managed Kubernetes service.
 
 
-[computer decision tree flowchart](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)
+[compute decision tree flowchart](https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-decision-tree)
 
 
 
@@ -108,17 +109,17 @@ author: Pralaya Panta
 
 ### Azure hierarchy
 
-- **Management groups** help you manage access, policy, and compliance for multiple subscriptions.
+- Management groups help you manage access, policy, and compliance for multiple subscriptions.
 	- can be used to aggregate policy and initiative assignments via Azure Policy
 	- can support up to six levels of depth
 	- by default, all new subscriptions are placed under the root management group
-    
-- **Subscriptions** are logical containers that serve as units of management and scale. Subscriptions are also billing boundaries.
-	- Subscriptions can provide separate billing environments, such as development, test, and production. 
+
+- Subscriptions are logical containers that serve as units of management and scale. Subscriptions are also billing boundaries.
+	- Subscriptions can provide separate billing environments, such as development, test, and production.
 	- Policies for individual subscriptions can help satisfy different compliance standards.
 	- By using subscriptions, you can manage and track costs for your organizational structure.
-    
-- **Resource groups** are logical containers into which Azure resources are deployed and managed.
+
+- Resource groups are logical containers into which Azure resources are deployed and managed.
 	- Place resources of similar usage, type, or location in logical groups.
 	- Organize resources by life cycle so all the resources can be created or deleted at the same time.
 	- Apply role permissions to a group of resources or give a group access to administer a group of resources.
@@ -127,11 +128,11 @@ author: Pralaya Panta
 	- Resource groups can't be nested.
 	- Each resource must be in one, and only one, resource group.
 	- Resource groups can't be renamed.
-    
-- **Resources** are instances of services that you create. For example, virtual machines, storage, and SQL databases.
+
+- Resources are instances of services that you create. For example, virtual machines, storage, and SQL databases.
 
 - Resource Tags
-	- **name-value pairs** assigned to Azure resources
+	- name-value pairs assigned to Azure resources
 	- key tool to organise and manage resources
 	- can be applied to resource group, resource, subscription
 	- a resource can have up to 50 tags
