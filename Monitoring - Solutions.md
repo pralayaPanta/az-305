@@ -1,8 +1,10 @@
 ---
 tags:
   - studynote
+  - az-305
 title: Monitoring - Solutions
 author: Pralaya Panta
+updated: 2026-10-23
 ---
 
 
@@ -21,8 +23,8 @@ author: Pralaya Panta
 	- routed via Activity Log Diagnostic Settings for >90 days retention, alerting, or SIEM export
 
 - Resource Logs (Data Plane)
-	- operations performed *within* an Azure resource (e.g., Key Vault secret reads, Storage blob access, NSG/VNet flows, SQL queries)
-	- not collected by default 
+	- operations performed within an Azure resource (e.g., Key Vault secret reads, Storage blob access, NSG/VNet flows, SQL queries)
+	- not collected by default
 		- must enable Diagnostic Settings on each resource (or enforce at scale via Azure Policy `DeployIfNotExists`)
 
 - Guest OS Logs (Virtual Machines)
@@ -37,14 +39,14 @@ author: Pralaya Panta
 		- collect and organise data from resources that you monitor
 		- gathered and organised on the platform
 	- Azure Monitor Metrics
-		- captures numerical data from monitored resources 
+		- captures numerical data from monitored resources
 - data from multiple resources can be collected into Azure Monitor
 - log queries can be used for analysis - using KQL
 - data collection rules (DCRs)
 	- defines what is collected, how to filter and transform it and where to send it
 	- collected by AMA agent
 		- windows events and performance counter
-		- syslog 
+		- syslog
 		- IIS logs
 		- custom logs (text and JSON)
 
@@ -58,7 +60,7 @@ author: Pralaya Panta
 - billing and retention can be set for each workspace
 	- retention can be set 30 to 730 days
 	- retains data in - interactive retention and long term retention
-- used to run **Kusto Query Language (KQL)** queries on logs
+- used to run Kusto Query Language (KQL) queries on logs
 - used by services - Monitor, Sentinel, Automation
 
 
@@ -67,7 +69,7 @@ author: Pralaya Panta
 
 - data retention in workspace
 	- interactive retention
-		- retrieve data from table using KQL 
+		- retrieve data from table using KQL
 		- available for visualisation, alerts
 	- long term retention
 		- low cost state with basic data
@@ -92,7 +94,7 @@ author: Pralaya Panta
 		- only recommended when required by Data Sovereignty or regulation
 		- cross-workspace KQL query - supports up to 100 workspace
 
-- data collection rules 
+- data collection rules
 	- defines what is collected, how to filter and transform it and where to send it
 	- methods
 		- Azure Monitor Agent
@@ -122,8 +124,8 @@ author: Pralaya Panta
 
 ## Diagnostic Settings
 
-- defines where platform metrics, resource logs, and Activity Logs are sent 
-- up to **5 diagnostic settings** per resource
+- defines where platform metrics, resource logs, and Activity Logs are sent
+- up to 5 diagnostic settings per resource
 - destinations
 	- Send to Log Analytics Workspace
 		- use for interactive KQL querying, Log Search Alerts, Workbooks, and Microsoft Sentinel correlation
@@ -138,18 +140,18 @@ author: Pralaya Panta
 
 ## Azure Monitor Insights
 
-- Azure insights provide a customized monitoring experience for particular applications and services.    
+- Azure insights provide a customized monitoring experience for particular applications and services.
 - Azure insights collect and analyze both logs and metrics.
 - example
 	- app insights
 		- Workspace-based (stores telemetry in `AppTraces`, `AppRequests`, `AppDependencies`, `AppExceptions` tables inside Log Analytics)
-		- **Auto-instrumentation (codeless agent on App Service / AKS / VMs) vs. OpenTelemetry SDK (custom code telemetry)**
-		- **Distributed Tracing & Application Map: visualizes end-to-end dependency calls and latency bottlenecks across microservices**
+		- Auto-instrumentation (codeless agent on App Service / AKS / VMs) vs. OpenTelemetry SDK (custom code telemetry)
+		- Distributed Tracing & Application Map: visualizes end-to-end dependency calls and latency bottlenecks across microservices
 	- container insights
-		- monitors AKS and ACA cluster performance, pod/node logs (`ContainerLogV2`), and integrates with **Managed Prometheus** & **Azure Managed Grafana**
+		- monitors AKS and ACA cluster performance, pod/node logs (`ContainerLogV2`), and integrates with Managed Prometheus & Azure Managed Grafana
 	- network insights
 	- vm insights
-		- uses **AMA** + **Dependency Agent** to monitor guest OS performance (CPU, memory, disk) and map TCP network dependencies between servers
+		- uses AMA + Dependency Agent to monitor guest OS performance (CPU, memory, disk) and map TCP network dependencies between servers
 	- storage insights etc
 
 
@@ -182,47 +184,48 @@ author: Pralaya Panta
 	- notifications: Email, SMS, Voice, Azure Mobile App Push
 	- automation / integration: Azure Functions, Logic Apps, Automation Runbooks, Event Hubs, Webhook, ITSM connector (ServiceNow)
 - Alert Processing Rules
-	- modifies fired alerts *before* or *instead of* calling Action Groups
+	- modifies fired alerts before or instead of calling Action Groups
 	- key use cases:
-		- suppression during planned maintenance windows 
+		- suppression during planned maintenance windows
 			- e.g., mute VM alerts Sunday 02:00–04:00 AM
 		- add Action Groups at scale across an entire subscription or resource group without editing individual alert rules
 
 
 ## Network Watcher & Flow Logs
 
-- **VNet Flow Logs** *(Replaces legacy NSG Flow Logs — retiring June 30, 2027)*
+- VNet Flow Logs (Replaces legacy NSG Flow Logs — retiring June 30, 2027)
 	- captures IP traffic flowing through a Virtual Network and writes JSON flow records to an Azure Storage Account
 	- Traffic Analytics: analyses VNet Flow Logs in Log Analytics to visualize top talkers, malicious IP flows, open ports, and geo-location maps
 
-- **Connection Monitor**
+- Connection Monitor
 	- continuous synthetic network connectivity, latency, and packet-loss monitoring between Azure VMs/scale sets and on-premises hosts (uses AMA extension)
 
-- **Diagnostic Troubleshooting Tools**
+- Diagnostic Troubleshooting Tools
 	- IP Flow Verify: checks if a packet is allowed or denied by an NSG/AVNM security rule
 	- Next Hop: validates the effective route table (System, BGP, or UDR) for a target destination IP
 	- VPN Troubleshoot / Packet Capture: diagnoses gateway tunnels and captures VM NIC packets
-##  Microsoft Sentinel
+
+## Microsoft Sentinel
 
 - scalable, cloud-native Security Information and Event Management (SIEM) and Security Orchestration Automated Response (SOAR) solution
 - detect, investigate, and respond to security threats
 - features
-	- **Data Collection**: Connects to Azure, Microsoft 365, AWS, on-premises, and third-party sources
-	- **Analytics & Detection**: Uses built-in and custom rules to identify threats
-	- **Workbooks**: Visual dashboards for monitoring and investigation
-	- **Hunting**: Proactively search for threats using KQL queries
-	- **Incidents**: Aggregates alerts into incidents for investigation
-	- **SOAR Automation**: Automate responses with Logic Apps playbooks
-	- **Integration**: Works with Log Analytics Workspace for data storage and querying
+	- Data Collection: Connects to Azure, Microsoft 365, AWS, on-premises, and third-party sources
+	- Analytics & Detection: Uses built-in and custom rules to identify threats
+	- Workbooks: Visual dashboards for monitoring and investigation
+	- Hunting: Proactively search for threats using KQL queries
+	- Incidents: Aggregates alerts into incidents for investigation
+	- SOAR Automation: Automate responses with Logic Apps playbooks
+	- Integration: Works with Log Analytics Workspace for data storage and querying
 
 ## Microsoft Defender for Cloud
-  - **CSPM (Cloud Security Posture Management):** Continuous **Secure Score**, regulatory compliance benchmarks (CIS, NIST, ISO, PCI-DSS), attack path analysis
-  - **CWPP (Cloud Workload Protection):** Defender plans for Servers, SQL, Storage, Containers, Key Vault, App Service, and APIs
+- CSPM (Cloud Security Posture Management): Continuous Secure Score, regulatory compliance benchmarks (CIS, NIST, ISO, PCI-DSS), attack path analysis
+- CWPP (Cloud Workload Protection): Defender plans for Servers, SQL, Storage, Containers, Key Vault, App Service, and APIs
 
 ## Quick Links
 - [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/)
 - [Azure Monitor Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
-- [Log Analytics Workspace](https://learn.mhttps://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overviewicrosoft.com/en-us/azure/azure-monitor/visualize/insights-overview)
+- [Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
 - [Diagnostic Settings in Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings)
 - [Data Collection Rules (DCRs) Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview)
 - [Log Analytics Workspace Data Export](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/logs-data-export)

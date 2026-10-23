@@ -2,8 +2,9 @@
 tags:
   - studynote
   - az-305
-title:
+title: Identity - Authentication
 author: Pralaya Panta
+updated: 2026-10-23
 ---
 
 ```table-of-contents
@@ -30,22 +31,22 @@ author: Pralaya Panta
 	- tenant is instance of Microsoft Entra ID
 	- can have multiple az subscriptions
 	- custom domain names can be added
-	- primary domain format: ***.onmicrosoft.com**
+	- primary domain format: `*.onmicrosoft.com`
 
 ### Administrative Units (Entra ID P1/P2)
 - logical container of Entra users, groups, or devices used to restrict administrative scope (e.g., delegate `Helpdesk Administrator` only to users in the `APAC Administrative Unit`)
-- **Restricted Management Administrative Units:** prevents even tenant-level Global Administrators or Privileged Authentication Administrators from modifying protected executive/sensitive accounts unless explicitly assigned to the AU
+- Restricted Management Administrative Units: prevents even tenant-level Global Administrators or Privileged Authentication Administrators from modifying protected executive/sensitive accounts unless explicitly assigned to the AU
 
 ### Self-Service Password Reset (SSPR) & Password Writeback
 - allows users to reset or unlock their passwords without helpdesk intervention
-- **Password Writeback:** writes cloud password changes/resets back to on-premises Active Directory in real time (requires **Entra ID P1/P2** and Entra Connect / Cloud Sync)
+- Password Writeback: writes cloud password changes/resets back to on-premises Active Directory in real time (requires Entra ID P1/P2 and Entra Connect / Cloud Sync)
 
 
 ## Azure Role-Based Access Control (RBAC)
 
 - can be applied at 4 levels
 	- management group
-	- subscription 
+	- subscription
 	- resource group
 	- resource
 - role assignments are inherited
@@ -71,7 +72,7 @@ author: Pralaya Panta
 			```
 
 ### Attribute-Based Access Control (ABAC)
-- builds on Azure RBAC by adding **role assignment conditions** based on resource, principal, or environment attributes (e.g., allow `Storage Blob Data Reader` *only if* blob index tag `Project == Cascade`)
+- builds on Azure RBAC by adding role assignment conditions based on resource, principal, or environment attributes (e.g., allow `Storage Blob Data Reader` only if blob index tag `Project == Cascade`)
 - reduces role assignment sprawl across thousands of containers/blobs
 
 
@@ -105,14 +106,14 @@ author: Pralaya Panta
 
 
 - delegated permission
-	- app acts on behalf of signedin user 
+	- app acts on behalf of signed-in user
 	- effective permission is intersection of app permission and user permission
-- application permission 
+- application permission
 	- app runs as a background service without a signed-in user
 	- always requires admin consent
 
 ### Workload Identity Federation (Federated Credentials)
-- allows external workloads (**GitHub Actions**, **Azure DevOps**, **AKS Service Accounts**, AWS/GCP workloads) to authenticate to Entra ID using **OIDC tokens** with **zero secrets or certificates** to rotate
+- allows external workloads (GitHub Actions, Azure DevOps, AKS Service Accounts, AWS/GCP workloads) to authenticate to Entra ID using OIDC tokens with zero secrets or certificates to rotate
 
 ## Managed Identities
 
@@ -129,27 +130,27 @@ author: Pralaya Panta
 		- managed separately from the resources that use it
 		- are suited for workloads with resources that are recycled frequently but with consistent permissions
 - example
-	- Use Azure Key Vault with managed identities for Azure resources to enable  Azure web app to access secret configuration values
+	- Use Azure Key Vault with managed identities for Azure resources to enable Azure web app to access secret configuration values
 
 
 
-##  Authorizing Access to On-Premises Resources
+## Authorizing Access to On-Premises Resources
 
-- **Microsoft Entra Application Proxy**
-	  - publishes internal on-premises web applications externally without opening inbound firewall ports or deploying VPNs/DMZ reverse proxies
-	  - **Architecture:** 
-		  - lightweight **Application Proxy Connector** on Windows Server 
-		  - makes **outbound TCP 443** connections only; 
-		  - deploy **2+ connectors in a Connector Group** for high availability
-	  - **Pre-Authentication:** always recommend **Microsoft Entra ID Pre-Authentication** (blocks unauthenticated traffic at the Azure edge and enforces **Conditional Access + MFA** before traffic ever reaches on-premises)
-	  - **Single Sign-On (SSO) to backend on-prem apps:** supports **Kerberos Constrained Delegation (KCD)** (Integrated Windows Auth), Header-based, SAML, and Password Vaulting
+- Microsoft Entra Application Proxy
+	- publishes internal on-premises web applications externally without opening inbound firewall ports or deploying VPNs/DMZ reverse proxies
+	- Architecture:
+		- lightweight Application Proxy Connector on Windows Server
+		- makes outbound TCP 443 connections only
+		- deploy 2+ connectors in a Connector Group for high availability
+	- Pre-Authentication: always recommend Microsoft Entra ID Pre-Authentication (blocks unauthenticated traffic at the Azure edge and enforces Conditional Access + MFA before traffic ever reaches on-premises)
+	- Single Sign-On (SSO) to backend on-prem apps: supports Kerberos Constrained Delegation (KCD) (Integrated Windows Auth), Header-based, SAML, and Password Vaulting
 
-- **Microsoft Entra Private Access (Global Secure Access / ZTNA)**
-	  - modern Zero Trust Network Access (ZTNA) replacement for traditional corporate VPNs
-	  - provides granular per-app, per-port TCP/UDP access to private on-premises and Azure VNet resources with Conditional Access enforcement on every connection
+- Microsoft Entra Private Access (Global Secure Access / ZTNA)
+	- modern Zero Trust Network Access (ZTNA) replacement for traditional corporate VPNs
+	- provides granular per-app, per-port TCP/UDP access to private on-premises and Azure VNet resources with Conditional Access enforcement on every connection
 
-- **Microsoft Entra Kerberos (Hybrid Azure Files Authentication)**
-	  - enables hybrid synced users to access **Azure Files (SMB)** using Kerberos tickets issued directly by Microsoft Entra ID without requiring line-of-sight network connectivity to on-premises Domain Controllers
+- Microsoft Entra Kerberos (Hybrid Azure Files Authentication)
+	- enables hybrid synced users to access Azure Files (SMB) using Kerberos tickets issued directly by Microsoft Entra ID without requiring line-of-sight network connectivity to on-premises Domain Controllers
 
 
 ## Hybrid Authentication Methods
@@ -162,14 +163,14 @@ author: Pralaya Panta
 	- supports Seamless SSO
 
 - Pass-Through Authentication (PTA)
-	-  validates user passwords directly against on-premises Active Directory 
-		- using lightweight PTA agents installed on-premises 
-		- outbound TCP 443 only; 
+	- validates user passwords directly against on-premises Active Directory
+		- using lightweight PTA agents installed on-premises
+		- outbound TCP 443 only
 		- deploy 3+ agents for high availability
-	  - when to recommend:
-	    - strict regulatory/security requirement that password hashes must never leave on-premises
-	    - need immediate enforcement of on-premises AD user states, logon hours, and account lockouts without waiting for sync intervals
-	  - supports Seamless SSO; can enable PHS alongside PTA as an automated cloud disaster recovery fallback
+	- when to recommend:
+		- strict regulatory/security requirement that password hashes must never leave on-premises
+		- need immediate enforcement of on-premises AD user states, logon hours, and account lockouts without waiting for sync intervals
+	- supports Seamless SSO; can enable PHS alongside PTA as an automated cloud disaster recovery fallback
 
 - Federation (AD FS or 3rd-Party IdP)
 	- Entra ID redirects user sign-in to an on-premises Federation Server (WS-Federation, SAML 2.0, OIDC)
@@ -185,7 +186,7 @@ author: Pralaya Panta
 
 - Microsoft Entra Cloud Sync
 	- lightweight provisioning agent managed entirely from the Microsoft Entra admin center in the cloud
-	- supports **disconnected multi-forest AD environments** (no network connectivity or forest trusts required between AD forests)
+	- supports disconnected multi-forest AD environments (no network connectivity or forest trusts required between AD forests)
 	- built-in high availability by deploying multiple active provisioning agents
 - Microsoft Entra Connect Sync
 	- full synchronization engine installed and managed on an on-premises Windows Server
@@ -195,21 +196,21 @@ author: Pralaya Panta
 			- large directories (>100,000 objects per domain) or complex custom attribute filtering/transformation rules
 
 
-## External Identities 
+## External Identities
 
 
-- **Microsoft Entra B2B Collaboration (Guest Users)**
+- Microsoft Entra B2B Collaboration (Guest Users)
 	- invites external partner users into your workforce tenant as `UserType == Guest`
 	- guests sign in using their own home identity provider (another Entra tenant, Google, SAML/WS-Fed, Email OTP) while authorization is controlled in your resource tenant
 	- Cross-Tenant Access Settings: allows trusting the partner tenant's MFA claims and Device Compliance / Hybrid Join claims so guests aren't prompted to register MFA twice
 	- Billing model: Monthly Active Users (MAU) — first 50,000 MAUs per month are free (including Premium P1/P2 features when linked to an Azure subscription)
 
 
-- **Microsoft Entra B2B Direct Connect**
+- Microsoft Entra B2B Direct Connect
 	- establishes a mutual two-way trust with another Microsoft Entra organization via Cross-Tenant Access Settings
-	- enables seamless collaboration (e.g., Teams Shared Channels) *without* creating Guest user objects in your directory
+	- enables seamless collaboration (e.g., Teams Shared Channels) without creating Guest user objects in your directory
 
-- **Microsoft Entra External ID for Customers (CIAM — Replaces legacy Azure AD B2C)**
+- Microsoft Entra External ID for Customers (CIAM — Replaces legacy Azure AD B2C)
 	- dedicated customer-facing tenant for consumer and business customer applications
 	- supports custom branded sign-up/sign-in user flows, self-service registration, and social identity providers (Google, Facebook, Apple, custom OIDC/SAML)
 	- isolates consumer accounts completely from internal corporate workforce directory

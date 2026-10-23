@@ -2,9 +2,9 @@
 tags:
   - studynote
   - az-305
-title:
+title: Identity - Entra Domain Services
 author: Pralaya Panta
-updated: 2026-10-21
+updated: 2026-10-23
 ---
 
 ```table-of-contents

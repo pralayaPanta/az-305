@@ -2,9 +2,9 @@
 tags:
   - studynote
   - az-305
-title:
+title: Identity - Governance
 author: Pralaya Panta
-updated: 2026-10-17
+updated: 2026-10-23
 ---
 
 ```table-of-contents
@@ -14,9 +14,9 @@ updated: 2026-10-17
 
 ## Entitlement Management (Access Packages)
 
-- bundles multiple resources (**Entra Security Groups, M365 Groups/Teams, Enterprise Apps, SharePoint Online sites**) into a single governable **Access Package** inside a **Catalog**
-- supports internal employees and external partner organizations (**Connected Organizations**)
-- enforces **multi-stage approval workflows**, **requestor justification**, and **automatic time-bound expiration** (can automatically remove guest accounts when their last Access Package expires)
+- bundles multiple resources (Entra Security Groups, M365 Groups/Teams, Enterprise Apps, SharePoint Online sites) into a single governable Access Package inside a Catalog
+- supports internal employees and external partner organizations (Connected Organizations)
+- enforces multi-stage approval workflows, requestor justification, and automatic time-bound expiration (can automatically remove guest accounts when their last Access Package expires)
 
 
 ## Access Reviews

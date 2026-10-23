@@ -506,10 +506,10 @@ Single-region writes only            Best for e-commerce, shopping carts        
 ---
 
 ## 🔗 7. Quick Navigation
-- **Study Guide Index:** [README](README.md)
-- **Quiz Tracker & Error Log:** [az-305-quiz.md](quiz/az-305-quiz.md)
-- **Identity & Auth Notes:** [Identity - Authentication.md](Identity%20-%20Authentication.md)
-- **Monitoring Notes:** [Monitoring - Solutions.md](Monitoring%20-%20Solutions.md)
-- **Storage Relational Notes:** [Storage3 - relational database.md](Storage3%20-%20relational%20database.md)
-- **Backup & Recovery Notes:** [Business Cont - Backup & recovery.md](Business%20Cont%20-%20Backup%20%26%20recovery.md)
-- **WAF Reference:** [Azure Well-Architected Framework.md](Azure%20Well-Architected%20Framework.md)
+- **Study Guide Index:** [[mscerts/az-305/README|AZ-305 Overview (README)]] · [[mscerts/mscert-readme|Microsoft Certifications Index]]
+- **Quiz Tracker & Error Log:** [[mscerts/az-305/quiz/az-305-quiz|AZ-305 Quiz & Mock Tracker]]
+- **Foundations & WAF:** [[mscerts/az-305/A - Introduction and Basic Concepts|A - Introduction and Basic Concepts]] · [[mscerts/az-305/Azure Well-Architected Framework|Azure Well-Architected Framework]] · [[mscerts/az-305/Study Links|Study Links]]
+- **Domain 1 (Identity, Governance & Monitoring):** [[mscerts/az-305/Identity - Authentication|Identity - Authentication]] · [[mscerts/az-305/Identity - Conditional Access|Identity - Conditional Access]] · [[mscerts/az-305/Identity - Entra Domain Services|Identity - Entra Domain Services]] · [[mscerts/az-305/Identity - Azure Key Vault|Identity - Azure Key Vault]] · [[mscerts/az-305/Identity - Governance|Identity - Governance]] · [[mscerts/az-305/Governance - Azure Policy|Governance - Azure Policy]] · [[mscerts/az-305/Monitoring - Solutions|Monitoring - Solutions]]
+- **Domain 2 (Data Storage):** [[mscerts/az-305/Storage1 - introduction|Storage1 - Introduction]] · [[mscerts/az-305/Storage2 - non relational data|Storage2 - Non-Relational Data]] · [[mscerts/az-305/Storage3 - relational database|Storage3 - Relational Database]] · [[mscerts/az-305/Storage4 - non relational database (nosql)|Storage4 - NoSQL]] · [[mscerts/az-305/Storage5 - data integration|Storage5 - Data Integration]]
+- **Domain 3 (Business Continuity):** [[mscerts/az-305/Business Cont - Backup & recovery|Business Cont - Backup & Recovery]]
+- **Domain 4 (Infrastructure, Apps, Migrations & Networking):** [[mscerts/az-305/Compute1 - Virtual Machines|Compute1 - Virtual Machines]] · [[mscerts/az-305/Compute2 - Containers|Compute2 - Containers]] · [[mscerts/az-305/Compute3 - Serverless|Compute3 - Serverless]] · [[mscerts/az-305/App Architecture and services|App Architecture and Services]] · [[mscerts/az-305/App & Infrastructure as Code (IaC)|App & Infrastructure as Code (IaC)]] · [[mscerts/az-305/Migration - Design and Tools|Migration - Design and Tools]] · [[mscerts/az-305/Networking - Architecture Best Practices|Networking - Architecture Best Practices]] · [[mscerts/az-305/Networking - Distributing Traffic|Networking - Distributing Traffic]] · [[mscerts/az-305/Networking - Connectivity|Networking - Connectivity]] · [[mscerts/az-305/Networking - Security|Networking - Security]]
