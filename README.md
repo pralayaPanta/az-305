@@ -11,7 +11,7 @@ type: cert-guide
 
 # ☁️ AZ-305: Designing Microsoft Azure Infrastructure Solutions
 
-> Complete study guide, domain breakdown, architectural notes, and 450-question practice examination suite for the **Microsoft Certified: Azure Solutions Architect Expert** certification.
+> Complete study guide, domain breakdown, architectural notes, and 494-question practice examination suite for the **Microsoft Certified: Azure Solutions Architect Expert** certification.
 
 ---
 
@@ -52,6 +52,10 @@ Comprehensive architectural reference notes organized strictly by official AZ-30
 
 ### Domain 1: Design Identity, Governance & Monitoring (25–30%)
 - [Identity & Authentication](Identity%20-%20Authentication.md) — Microsoft Entra ID architectures, B2B/B2C/External ID, Managed Identities, and OAuth 2.0 / OIDC delegated flows.
+- [Conditional Access & Authentication Strengths](Identity%20-%20Conditional%20Access.md) — Signals, P1/P2/Workload ID licensing, Grant/Session controls, Continuous Access Evaluation (CAE), and Phishing-Resistant MFA.
+- [Microsoft Entra Domain Services](Identity%20-%20Entra%20Domain%20Services.md) — Managed domain services (LDAP/LDAPS, Kerberos, NTLM), SKUs, one-way sync, and Replica Sets.
+- [Azure Key Vault & Managed HSM](Identity%20-%20Azure%20Key%20Vault.md) — Secrets, keys, certificates, Standard vs. Premium vs. Managed HSM, Soft Delete, Purge Protection, and Key Vault RBAC roles.
+- [Microsoft Entra ID Governance](Identity%20-%20Governance.md) — Entitlement Management (Access Packages), Access Reviews, Privileged Identity Management (PIM), and Lifecycle Workflows.
 - [Governance & Azure Policy](Governance%20-%20Azure%20Policy.md) — Management Group hierarchies, Azure Policy initiatives, subscription vending, and tag governance.
 - [Monitoring Solutions](Monitoring%20-%20Solutions.md) — Azure Monitor Agent (AMA), Data Collection Rules, centralized Log Analytics, and KQL schemas.
 
@@ -60,28 +64,34 @@ Comprehensive architectural reference notes organized strictly by official AZ-30
 - [Non-Relational Blob Storage](Storage2%20-%20non%20relational%20data.md) — Hot, Cool, Cold, Archive tiers, high-priority rehydration, and WORM immutability.
 - [Relational Databases & Azure SQL](Storage3%20-%20relational%20database.md) — Azure SQL Database, Hyperscale, Business Critical, and Azure SQL Managed Instance.
 - [NoSQL & Azure Cosmos DB](Storage4%20-%20non%20relational%20database%20(nosql).md) — Cosmos DB NoSQL API, 5 consistency levels, partition key design, multi-region writes, and Integrated Cache.
-- [Data Integration & Analytics](Storage5%20-%20data%20integration.md) — Synapse Link, Event Hubs Capture, ADLS Gen2 POSIX ACLs, and Azure Databricks credential passthrough.
+- [Data Integration & Analytics](Storage5%20-%20data%20integration.md) — Synapse Link, Event Hubs Capture, ADLS Gen2 POSIX ACLs, and Azure Databricks Unity Catalog.
 
 ### Domain 3: Design Business Continuity Solutions (15–20%)
-- [Backup & Disaster Recovery](Business%20Cont%20-%20Backup%20&%20recovery.md) — Azure Backup, Recovery Services Vaults, Cross-Region Restore (CRR), Multi-User Authorization (MUA), ASR, and SQL Auto-Failover Groups.
+- [Backup & Disaster Recovery](Business%20Cont%20-%20Backup%20&%20recovery.md) — Azure Backup, Recovery Services Vaults vs. Backup Vaults, Cross-Region Restore (CRR), Multi-User Authorization (MUA), ASR, and SQL Auto-Failover Groups.
 
 ### Domain 4: Design Infrastructure Solutions (30–35%)
 
-#### Compute & Serverless
+#### Compute, Serverless & Application Architecture
 - [Virtual Machines Architecture & Sizing](Compute1%20-%20Virtual%20Machines.md) — VM family decision tree, Managed Disks, Host Caching gotchas, SLAs (Single VM, AvSets, AvZones), VMSS Flexible vs Uniform, and Host Encryption.
 - [Containers & Microservices](Compute2%20-%20Containers.md) — Container decision matrix, Azure Container Instances (ACI), Azure Kubernetes Service (AKS), and Azure Container Apps (ACA).
-- [Serverless & Application Architecture](Compute3%20-%20Serverless.md) — Azure Functions (Consumption vs Elastic Premium vs Dedicated), Logic Apps, and event-driven computing.
+- [Serverless & Functions](Compute3%20-%20Serverless.md) — Azure App Service, Azure Functions (Consumption, Flex Consumption, Elastic Premium, Dedicated, Durable Functions), and Logic Apps.
+- [Application Architecture & Services](App%20Architecture%20and%20services.md) — Messaging (Service Bus vs. Storage Queues), Eventing (Event Grid vs. Event Hubs), API Management (APIM), Azure Cache for Redis, and Azure App Configuration.
+- [App & Infrastructure as Code (IaC)](App%20&%20Infrastructure%20as%20Code%20(IaC).md) — ARM Templates, Bicep, Template Specs, Azure Deployment Stacks, Azure Automation, Azure DevOps, and GitHub Actions.
+
+#### Migrations
+- [Migration Design & Tools](Migration%20-%20Design%20and%20Tools.md) — Cloud Adoption Framework (CAF), Azure Migrate, Database Migration Service (DMS), Storage Mover, File Sync, Import/Export, and Azure Data Box.
 
 #### Networking & Global Traffic
+- [Networking Architecture Best Practices](Networking%20-%20Architecture%20Best%20Practices.md) — IP addressing (`/16` max, non-overlapping CIDR), Single-VNet, Multi-VNet Peering, and Hub-Spoke topologies.
 - [Distributing Regional & Global Traffic](Networking%20-%20Distributing%20Traffic.md) — Azure Load Balancer (Standard/Gateway), Application Gateway (WAF v2), Azure Front Door, Traffic Manager, and Azure CDN.
 - [Hybrid Connectivity & Routing](Networking%20-%20Connectivity.md) — ExpressRoute, VPN Gateway, Virtual WAN, BGP routing, User Defined Routes (UDRs), and Azure NAT Gateway.
 - [Network Security & Isolation](Networking%20-%20Security.md) — Network Security Groups (NSGs), Application Security Groups (ASGs), Azure Firewall, Private Endpoints, Service Endpoints, and DDoS Protection.
 
 ---
 
-## 🎯 450-Question Interactive Practice Exam Suite
+## 🎯 494-Question Interactive Practice Exam Suite
 
-Nine full-length 50-question mock exams testing senior architectural decision-making. All questions feature interactive expandable answer toggles for active-recall self-testing.
+Nine full-length 50-question mock exams plus two 22-question enterprise case studies testing senior architectural decision-making. All questions feature interactive expandable answer toggles for active-recall self-testing.
 
 - **[AZ-305 Quiz & Benchmark Tracker](quiz/az-305-quiz.md)** — Score log, test-taking strategy, and question bank navigation.
 

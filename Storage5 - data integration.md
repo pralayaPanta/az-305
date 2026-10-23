@@ -4,9 +4,8 @@ tags:
   - studynote
 title: Storage - data integration
 author: Pralaya Panta
-updated: 2026-10-17
+updated: 2026-10-22
 ---
-
 ```table-of-contents
 ```
 
@@ -44,7 +43,10 @@ updated: 2026-10-17
 	- datasets (table, file)
 	- linked services (SQL server, hadoop, cluster)
 	- data flows 
-	- integration runtimes (Azure, self-hosted and Azure-SSIS)
+	- integration runtimes
+		- **Azure IR**: serverless cloud-to-cloud data movement and Data Flow execution (supports **Managed VNet** with Private Endpoints)
+		- **Self-Hosted IR (SHIR)**: bridges **on-premises or private VNet** data stores to cloud over outbound HTTPS `443` (up to 4 nodes for HA)
+		- **Azure-SSIS IR**: dedicated managed cluster for lifting and shifting SQL Server Integration Services (`.dtsx`) packages
 - serves
 	- big data 
 	- relational data warehousing
@@ -57,15 +59,17 @@ updated: 2026-10-17
 - can store any type of data by using the data's native format
 - primarily designed to work with Hadoop and all frameworks that use the Apache Hadoop Distributed File System (HDFS) as their data access layer
 - supports high throughput for input and output–intensive analytics and data movement
-- supports both 
-	- Azure role-based access control (RBAC) and 
-	- Portable Operating System Interface for UNIX (POSIX) access control lists (ACLs)
+- supports both (evaluated in order: **Azure RBAC first**, then **POSIX ACLs**):
+	- **Azure RBAC**: coarse-grained access at storage account or container level (`Storage Blob Data Reader/Contributor/Owner`)
+	- **POSIX ACLs**: fine-grained directory/file permissions (`rwx`)
+		- **Access ACLs**: control access to a specific file or directory
+		- **Default ACLs**: set on a directory only; inherited as a template by newly created child items (does not retroactively change existing children)
 - priced at Azure Blob Storage levels
 - steps
 	- Ingest data
 	- access stored data
 	- configure access control
-- good for storing large volumes of text data- 
+- good for storing large volumes of text data
 
 [Azure Data Lake](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction)
 
@@ -84,6 +88,7 @@ updated: 2026-10-17
 	- databricks SQL
 	- databricks data science and technology
 	- databricks machine learning
+- **Unity Catalog**: unified governance for data and AI assets across Databricks workspaces (fine-grained row/column access control, automated lineage, central auditing)
 - works with Power BI for fast insights.
 
 [Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/introduction)
@@ -95,20 +100,35 @@ updated: 2026-10-17
 - combines features of big data analytics, enterprise data storage, and data integration
 -  supports data ingestion, exploration, transformation, and management, and supports analysis for all BI and machine learning needs
 - elements
-	- SQL pool
-	- Spark pool
-	- Pipelines
-	- Link
-	- Studio
+	- **SQL pool**:
+		- **Dedicated SQL Pool**: provisioned MPP data warehouse (60 distributions: Hash, Round-Robin, Replicated; billed by DWUs)
+		- **Serverless SQL Pool**: on-demand T-SQL queries directly over Parquet/Delta/CSV/JSON files in ADLS Gen2 (pay per TB processed)
+	- **Spark pool**: managed Apache Spark clusters for big data processing
+	- **Pipelines**: built-in ADF-powered ETL/ELT engine
+	- **Azure Synapse Link**: zero-ETL near-real-time analytics (HTAP) over operational data in Cosmos DB, Azure SQL DB, SQL Server 2022, and Dataverse without impacting transactional workloads
+	- **Studio**: unified workspace for data prep, management, and visualization
 - includes
 	- control node
 	- compute node
-- uses technology called PolyBase that retrieve and query data from relational and non relational sources
+- uses technology called PolyBase (and `COPY INTO`) that retrieve and query data from relational and non relational sources
 - analytical option
 	- descriptive - what is happening
 	- diagnostic - why is it happening
 	- predictive - what likely to happen
 	- prescriptive - what needs to be done
+
+
+## Additional Data Integration, Governance & Analytics Services
+
+- **Azure Event Hubs Capture**:
+	- automatically batches and writes streaming Event Hubs data directly to **Blob Storage** or **ADLS Gen2** in **Avro** or **Parquet** format by time/size window with zero code
+- **Azure Data Explorer (ADX / Kusto)**:
+	- fast, fully managed append-only analytics service for high-volume log, telemetry, and time-series data queried via **KQL**
+- **Microsoft Purview**:
+	- unified data governance, automated data discovery, sensitive data classification, end-to-end **data lineage** (across ADF, Synapse, Fabric, Power BI), and business glossary
+- **Microsoft Fabric**:
+	- all-in-one SaaS analytics platform built on **OneLake** (single tenant-wide logical data lake using **Delta-Parquet** format)
+	- **OneLake Shortcuts**: zero-copy virtual pointers to existing data in ADLS Gen2, AWS S3, or Dataverse without data movement
 
 
 ## Azure Stream Analytics

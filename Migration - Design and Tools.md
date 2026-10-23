@@ -2,8 +2,9 @@
 tags:
   - studynote
   - az-305
-title:
+title: Migration - Design and Tools
 author: Pralaya Panta
+updated: 2026-10-23
 ---
 
 
@@ -42,6 +43,8 @@ author: Pralaya Panta
 	- breaking down monolithic app into a group of microservices
 - Rebuild
 	- rebuilding an app using cloud technologies
+- Replace
+	- retire custom on-premises app in favor of a commercial SaaS solution (e.g., Microsoft 365, Salesforce)
 
 
 
@@ -52,12 +55,19 @@ author: Pralaya Panta
 	- performs assessment and migration to Azure of virtual machines (Hyper-V and VMware), cloud-based virtual machines, physical servers, databases, data, virtual desktop infrastructure, and web applications
 	- agentless environment discovery or use agents to perform a dependency analysis
 	- makes recommendations for the size of virtual machine to create
+		- Performance-based sizing (recommended) - analyzes historical CPU, RAM, disk IOPS, and network utilization to right-size Azure VMs
+		- As-is on-premises sizing - maps exact on-premises core and RAM counts 1:1 without considering actual utilization
+	- server migration modes
+		- Agentless migration - supported for VMware vSphere via vCenter APIs (up to 500 VMs concurrently) and Hyper-V
+		- Agent-based migration - uses Mobility Service + Replication Appliance (required for physical servers, AWS EC2, GCP VMs)
 	- supports the visualization of dependencies
 	- tools
 		- Azure Migrate: Discovery and assessment
 		- Azure Migrate: Migration and modernization
+		- Azure Migrate: App Containerization (packages existing ASP.NET and Java web apps into containers for AKS or Azure Container Apps)
 		- App Service Migration Assistant
-		- SQL Server Data Migration Assistant (DMA)
+		- Azure SQL Migration extension for Azure Data Studio (replaces standalone SQL Server Data Migration Assistant / DMA)
+		- Application and Code Assessment for .NET and Java
 		- Azure Database Migration Service
 		- Azure Data Box
 [Azure Migrate documentation](https://learn.microsoft.com/en-us/azure/migrate/migrate-overview)
@@ -65,7 +75,7 @@ author: Pralaya Panta
 - Database Migration Service
 	- performs assessment and migration for several different databases, not just Azure SQL Database.
 
-- **Data Migration tool**
+- Data Migration tool
 	- The Azure Cosmos DB Data Migration tool migrates your existing databases to Azure Cosmos DB.
 
 - Azure Monitor 
@@ -107,8 +117,10 @@ author: Pralaya Panta
 		- minimises downtime
 - migration scenario
 	- SQL Server to Azure SQL Managed Instance - online or offline
+		- Managed Instance Link - creates a Distributed Availability Group (DAG) between SQL Server and SQL MI for near-zero-downtime cutover and bidirectional failback (SQL Server 2022+)
+		- Log Replay Service (LRS) - continuously replays transaction log backups (.trn) from Azure Blob Storage into SQL MI until cutover
 	- SQL Server to SQL Server on Azure Virtual Machine - online or offline
-	- SQL Server to Azure SQL Database - offline
+	- SQL Server to Azure SQL Database - offline (BACPAC export/import) or online (DMS / transactional replication)
 - Azure Database Migration Service can be automated by using PowerShell
 [the Azure Database Migration Service](https://learn.microsoft.com/en-us/azure/dms/dms-overview)
 

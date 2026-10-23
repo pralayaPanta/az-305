@@ -1,7 +1,18 @@
+---
+tags:
+  - mscert
+  - az-305
+  - quiz
+  - exam-prep
+title: AZ-305 — Quiz Sets & Practice Questions
+author: Pralaya Panta
+updated: 2026-10-23
+---
 
 # AZ-305 — Quiz Sets & Practice Questions
 
 **Exam:** AZ-305: Designing Microsoft Azure Infrastructure Solutions
+**Exam Result:** ✅ **Passed — 811 / 1000** (Oct 16, 2026 | Valid through Oct 16, 2027)
 **Target readiness score:** 80–85%+ consistently before sitting
 
 > [!warning] AI-Generated Study Material & Educational Disclaimer
@@ -64,7 +75,7 @@
 ## Quiz Strategy
 
 > [!TIP]
-> AZ-305 is not about memorising services. Every question tests a **design decision** or **trade-off**. When reviewing wrong answers, always ask: *why is this the better architecture for the stated constraint⚠️*
+> AZ-305 is not about memorising services. Every question tests a **design decision** or **trade-off**. When reviewing wrong answers, always ask: *why is this the better architecture for the stated constraint?*
 
 | Phase | Activity | Target Score |
 |-------|----------|-------------|

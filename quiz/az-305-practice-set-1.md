@@ -946,56 +946,56 @@ D) Azure Event Hubs with 5 consumer groups
 
 | Question | Answer Extract |
 |---|---|
-| Q1 | Answer: C — Federation with AD FS keeps password hashes on-p |
-| Q2 | Answer: A and D — Azure Policy with `Deny` effect prevents n |
-| Q3 | Answer: C — A single centralized workspace simplifies manage |
-| Q4 | Answer: A, B, and C — Named Locations in Conditional Access  |
-| Q5 | Answer: A — Assigning the built-in `Allowed Locations` polic |
-| Q6 | Answer: A and C — Cost Management anomaly detection and budg |
-| Q7 | Answer: A — A single workspace with table-level retention (a |
-| Q8 | Answer: B — Cosmos DB for NoSQL provides guaranteed sub-mill |
-| Q9 | Answer: B — A lifecycle management policy that transitions b |
-| Q10 | Answer: B — Azure SQL Managed Instance supports Service Brok |
-| Q11 | Answer: D — Event Hubs handles the 50K events/sec ingestion. |
-| Q12 | Answer: A — Azure Blob Storage immutability policies support |
-| Q13 | Answer: A — Cache-aside with Redis Enterprise handles 100K+  |
-| Q14 | Answer: A — Synapse Analytics provides an integrated workspa |
-| Q15 | Answer: A — Azure Site Recovery replicates VMs to a secondar |
-| Q16 | Answer: A — Recovery Services vault with GRS stores backup d |
-| Q17 | Answer: B — Azure Front Door is an Anycast-based global load |
-| Q18 | Answer: B — Auto-failover groups provide a read-write listen |
-| Q19 | Answer: B — Azure Container Apps provides serverless contain |
-| Q20 | Answer: A — Azure Virtual WAN Standard tier with secured vir |
-| Q21 | Answer: A — Azure Virtual Desktop supports GPU VMs (NV-serie |
-| Q22 | Answer: A — Azure Batch is purpose-built for embarrassingly  |
-| Q23 | Answer: D — Container Apps with HTTP-based scaling handles 1 |
-| Q24 | Answer: A — APIM in internal VNet mode with a Private Endpoi |
-| Q25 | Answer: B — Using a system-assigned managed identity with RB |
-| Q26 | Answer: A — B2B collaboration allows acquired users to authe |
-| Q27 | Answer: B — The Azure Landing Zone architecture separates pl |
-| Q28 | Answer: A, B, and C — CA policy targeting "Microsoft Azure M |
-| Q29 | Answer: A — PIM eligible assignments mean admins don't have  |
-| Q30 | Answer: A — Application Insights with the OpenTelemetry SDK  |
-| Q31 | Answer: A — Branch policies enforce PR-based reviews for all |
-| Q32 | Answer: A — A centralized Key Vault Premium tier provides HS |
-| Q33 | Answer: A — Always Encrypted with deterministic encryption p |
-| Q34 | Answer: A — ADLS Gen2 is Azure Blob Storage with hierarchica |
-| Q35 | Answer: A — Elastic Pools allow multiple databases to share  |
-| Q36 | Answer: A — Redis Sorted Sets are purpose-built for leaderbo |
-| Q37 | Answer: A — Azure File Sync enables hybrid file sharing, cac |
-| Q38 | Answer: A — SQL Database Hyperscale supports up to 100 TB, n |
-| Q39 | Answer: B — A single region (even with Availability Zones) c |
-| Q40 | Answer: A — Azure Backup for AKS (GA) provides integrated ba |
-| Q41 | Answer: A — Azure SQL Database supports configurable PITR re |
-| Q42 | Answer: A — Auto-failover groups with the readable secondary |
-| Q43 | Answer: A — Functions Premium plan eliminates cold starts vi |
-| Q44 | Answer: A — HBv4-series VMs are purpose-built for HPC worklo |
-| Q45 | Answer: A — Service Bus Premium provides at-least-once deliv |
-| Q46 | Answer: A — Azure Front Door Premium provides global Anycast |
-| Q47 | Answer: A — AML managed online endpoints provide built-in RE |
-| Q48 | Answer: A — ExpressRoute provides dedicated private connecti |
-| Q49 | Answer: A — Pooled host pools with multi-session Windows all |
-| Q50 | Answer: A — A Service Bus Topic with 5 subscriptions ensures |
+| Q1 | Answer: C — Federation with AD FS keeps password hashes on-premises with zero cloud hash storage |
+| Q2 | Answer: A and D — Azure Policy (`Deny` effect) blocks disallowed SKUs + Cost Management budget alerts |
+| Q3 | Answer: C — Single centralized Log Analytics workspace with resource-context RBAC |
+| Q4 | Answer: A, B, and C — Named Locations in Conditional Access + MFA + device compliance |
+| Q5 | Answer: A — Built-in `Allowed Locations` policy assigned at the Management Group scope |
+| Q6 | Answer: A and C — Cost Management anomaly detection and budget action groups |
+| Q7 | Answer: A — Single Log Analytics workspace with table-level retention and archive tiers |
+| Q8 | Answer: B — Azure Cosmos DB for NoSQL (sub-10ms latency & turnkey multi-region writes) |
+| Q9 | Answer: B — Blob Lifecycle Management policy transitioning Hot -> Cool -> Archive |
+| Q10 | Answer: B — Azure SQL Managed Instance (supports Service Broker, SQL Agent, cross-DB queries) |
+| Q11 | Answer: D — Azure Event Hubs (50K events/sec ingestion) + Capture to ADLS Gen2 |
+| Q12 | Answer: A — Azure Blob Storage time-based immutability policies in Locked state (WORM) |
+| Q13 | Answer: A — Cache-Aside pattern with Azure Cache for Redis Enterprise |
+| Q14 | Answer: A — Azure Synapse Analytics workspace (Serverless + Dedicated SQL & Spark pools) |
+| Q15 | Answer: A — Azure Site Recovery (ASR) continuous replication to secondary region |
+| Q16 | Answer: A — Recovery Services Vault with GRS and Cross-Region Restore (CRR) |
+| Q17 | Answer: B — Azure Front Door (Global Anycast L7 load balancing + WAF) |
+| Q18 | Answer: B — Azure SQL Auto-Failover Groups with read-write and read-only listeners |
+| Q19 | Answer: B — Azure Container Apps (serverless containers with KEDA event-driven scale-to-zero) |
+| Q20 | Answer: A — Azure Virtual WAN Standard tier with Secured Virtual Hub (Azure Firewall) |
+| Q21 | Answer: A — Azure Virtual Desktop (AVD) on N-series GPU VMs with FSLogix profiles |
+| Q22 | Answer: A — Azure Batch with Spot VMs for large-scale parallel rendering |
+| Q23 | Answer: D — Azure Container Apps with HTTP-based KEDA scaling (0 to 1,000 replicas) |
+| Q24 | Answer: A — Azure API Management in Internal VNet mode behind Application Gateway WAF |
+| Q25 | Answer: B — System-assigned Managed Identity with Key Vault Secrets User RBAC role |
+| Q26 | Answer: A — Microsoft Entra B2B collaboration guest invitations with Conditional Access |
+| Q27 | Answer: B — CAF Enterprise-Scale Landing Zone hierarchy separating Platform and Landing Zones |
+| Q28 | Answer: A, B, and C — Conditional Access policy targeting Microsoft Azure Management |
+| Q29 | Answer: A — Microsoft Entra PIM eligible role assignments with JIT approval and MFA |
+| Q30 | Answer: A — Application Insights with OpenTelemetry distributed tracing |
+| Q31 | Answer: A — Branch policies enforcing pull request reviews and CI build validation |
+| Q32 | Answer: A — Centralized Azure Key Vault Premium tier (HSM-backed keys) with RBAC |
+| Q33 | Answer: A — Always Encrypted with deterministic encryption for equality queries |
+| Q34 | Answer: A — Azure Data Lake Storage Gen2 (Hierarchical Namespace + POSIX ACLs) |
+| Q35 | Answer: A — Azure SQL Elastic Pools to share eDTUs/vCores across spiky databases |
+| Q36 | Answer: A — Azure Cache for Redis Sorted Sets (`ZADD`/`ZRANGE`) for real-time leaderboards |
+| Q37 | Answer: A — Azure File Sync with Cloud Tiering for hybrid Windows file servers |
+| Q38 | Answer: A — Azure SQL Database Hyperscale tier (up to 128 TB + rapid scale-out) |
+| Q39 | Answer: B — Multi-region deployment across paired Azure regions for regional outage resilience |
+| Q40 | Answer: A — Azure Backup for AKS with Backup Vault and Velero extension |
+| Q41 | Answer: A — Azure SQL Database automated PITR (up to 35 days) + Long-Term Retention (LTR) |
+| Q42 | Answer: A — Auto-Failover Groups with readable secondary for read-only reporting offload |
+| Q43 | Answer: A — Azure Functions Premium plan (pre-warmed instances, zero cold starts, VNet integration) |
+| Q44 | Answer: A — HBv4-series HPC VMs with InfiniBand RDMA networking |
+| Q45 | Answer: A — Azure Service Bus Premium tier with Message Sessions (FIFO) and DLQ |
+| Q46 | Answer: A — Azure Front Door Premium with WAF and Private Link to internal origins |
+| Q47 | Answer: A — Azure Machine Learning Managed Online Endpoints with blue/green traffic splitting |
+| Q48 | Answer: A — Azure ExpressRoute with Site-to-Site VPN backup failover |
+| Q49 | Answer: A — AVD Pooled Host Pool with Windows 11 Enterprise multi-session and autoscaling |
+| Q50 | Answer: A — Azure Service Bus Topic with 5 independent Subscriptions and per-subscription DLQs |
 
 ---
 

@@ -56,13 +56,28 @@ author: Pralaya Panta
 	- optimised for storing large amounts of infrequently used data
 	- intended for data that can remain in for at least 90 days	
 4. Archive
-	- availability 2 nines & 3 nines (RA-GRS)
+	- offline tier (**0% read availability SLA** while in Archive until rehydrated to Hot or Cool)
 	- latency time to first byte >> hours
 	- offline tier for data that can tolerate several hours of retrieval latency
 	- data must remain in the tier for at least 180 days or be subject to an early deletion charge
 	- includes secondary backups, original raw data, and legally required compliance information
 	- most cost-effective option for storing data
 	- accessing data is more expensive than any tier
+	- **Blob Rehydration (Archive -> Hot or Cool):**
+		- **Standard Priority:** takes **up to 15 hours**
+		- **High Priority:** takes **under 1 hour** for blobs `< 10 GB` (higher cost)
+		- **Recommended Method:** use **`Copy Blob`** to create a new blob in the Hot or Cool tier rather than changing the tier in-place (preserves the original archived blob and avoids early deletion penalties)
+
+### Blob Lifecycle Management & Reserved Capacity
+- **Lifecycle Management Policies:**
+	- JSON rules that automatically transition blobs to cooler tiers (`Hot -> Cool -> Cold -> Archive`) or delete blobs/versions/snapshots at the end of their lifecycle
+	- **Rule Conditions:**
+		- `daysAfterModificationGreaterThan` (days since the blob was last written/modified)
+		- `daysAfterCreationGreaterThan` (days since the blob or version was created)
+		- `daysAfterLastAccessTimeGreaterThan` (days since the blob was last read — **requires enabling Access Time Tracking**; can also automatically move a blob from `Cool` back to `Hot` on read via `autoTierToHotFromCool`)
+	- **Rule Filters:** scope rules by `blobTypes` (`blockBlob`, `appendBlob`) and `prefixMatch` (e.g., `container1/logs/2025`)
+- **Azure Storage Reserved Capacity:**
+	- 1-year or 3-year commitment for **100 TB** or **1 PB** blocks of Block Blob / ADLS Gen2 storage to significantly reduce storage capacity costs
 
 ### immutable storage
 - enables users to store business-critical data in a WORM (Write Once, Read Many) state

@@ -1,6 +1,11 @@
-
-
-
+---
+tags:
+  - studynote
+  - az-305
+title: Study Links
+author: Pralaya Panta
+updated: 2026-10-23
+---
 
 https://github.com/AkashHiwale/AZ-305-Azure-Solutions-Architect-Expert-Study-Notes
 
@@ -34,9 +39,7 @@ https://github.com/timothywarner/az305
 
 [Integration Services](https://azure.microsoft.com/en-us/products/category/integration/)
 
-[Azure Messageing (youtube)](https://www.youtube.com/watch?v=FVOhLqE9fzw)
-
-[Azure Active Directory Kerberos authentication](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable?tabs=azure-portal#prerequisites)
+[Microsoft Entra Kerberos authentication for Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable?tabs=azure-portal#prerequisites)
 
 [Azure SQL Database and Azure SQL Managed Instance](https://learn.microsoft.com/en-us/azure/azure-sql/database/features-comparison)
 
@@ -54,18 +57,18 @@ https://github.com/timothywarner/az305
 
 [Microsoft Graph security API overview](https://learn.microsoft.com/en-us/graph/security-concept-overview)
 
-[Azure Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)
+[Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)
 
 [Bicep Playground](https://azure.github.io/bicep/)
 
-[Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+[Azure Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/)
 
 [Azure Charts](https://azurecharts.com/)
 
-[Azure Docs](https://docs.microsoft.com/en-us/azure/)
+[Azure Docs](https://learn.microsoft.com/en-us/azure/)
 
-[Microsoft Cloud Adoption Framework for Azure](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/)
+[Microsoft Cloud Adoption Framework for Azure](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/)
 
-[Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/)
+[Microsoft Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
 
-[Azure Messaging Standards Matter (Azure & AI Conference 2022)](https://www.youtube.com/watch?v=FVOhLqE9fzw) YouTube
+[Azure Messaging Standards Matter (Azure & AI Conference 2022) - YouTube](https://www.youtube.com/watch?v=FVOhLqE9fzw)

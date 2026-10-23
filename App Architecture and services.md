@@ -2,8 +2,9 @@
 tags:
   - studynote
   - az-305
-title:
+title: App Architecture and Services
 author: Pralaya Panta
+updated: 2026-10-23
 ---
 
 ```table-of-contents
@@ -23,47 +24,56 @@ author: Pralaya Panta
 
 ###  Queue Mechanisms
  - Azure service bus queues
-		 - part of messaging infrastructure
-		 -  audit trail of all messages that pass through the queue
-		 - if queue does not exceed 80GB
+		 - part of messaging infrastructure (enterprise message broker)
+		 - use if queue size is under 80 GB and you need FIFO ordering, duplicate detection, transactions, or pub/sub topics
 -  Azure queue storage
-		 - storage infrastructure
+		 - storage infrastructure (simple REST queue)
+		 - use if queue size needs to exceed 80 GB (up to 500 TB), messages are <= 64 KB, and simple at-least-once delivery is sufficient
+		 - provides server-side audit trail of all queue transactions in Azure Storage Analytics
 
 ### Azure Service Bus
 - fully managed enterprise message broker
-- receives messages without polling
-- FIFO delivery and automatic duplicate detection
-- transactional behaviour and atomicity
+- receives messages without polling (long-polling / push-style receive)
+- FIFO delivery (via Message Sessions) and automatic duplicate detection
+- transactional behaviour, atomicity, auto-forwarding, and Dead-Letter Queue (DLQ) for poison/unprocessed messages
+- tiers
+	- Standard tier - shared multi-tenant capacity, pay-per-operation, max 256 KB message size, Queues + Topics/Subscriptions
+	- Premium tier - dedicated Messaging Units (predictable CPU/memory), max 100 MB message size, Availability Zones, Geo-Disaster Recovery / Geo-Replication, VNet Service Endpoints, Private Link, and Customer-Managed Keys (CMK)
 - supports 
 	- message queues and 
 	- publish-subscribe topics.
 
 #### Service Bus Topics (publish-subscribe topics)
-- can have multiple receivers to handle each message
-- can have multiple destinations for a single message but with queue like behavior
+- 1:N fan-out model where publishers send to a Topic and multiple independent Subscriptions receive filtered copies (SQL, Boolean, or Correlation filters)
+- can have multiple destinations for a single message with queue-like behavior per subscription
 
 #### Service Bus Queues (message queues)
+- 1:1 point-to-point competing consumers model
 - groups messages into transactions
 - receives messages without polling
-- queues can handle messages larger than 64KB and less than 80GB
-- at most once delivery, at least once processing, at most once processing of message
+- queues can handle messages larger than 64 KB (up to 256 KB Standard / 100 MB Premium) and queue size up to 80 GB
+- supports Peek-Lock (at-least-once processing) and Receive-and-Delete (at-most-once processing)
 
 ## Event Driven Application
 - An event is a lightweight notification that indicates something occurred.
 - An event can be sent to multiple receivers or to none.
 
 ### Azure Event Hub
-- fully managed, big data streaming platform and event ingestion service
+- fully managed, big data streaming platform and event ingestion service (millions of events/sec; Apache Kafka compatible)
 - can send and receive events in diff language
 - events received are added to the end of its data stream
+- architecture
+	- Partitions - ordered commit log; events stay in the partition for the retention period (1-90 days) and can be replayed
+	- Consumer Groups - independent views/offsets of the entire event stream so multiple downstream analytics apps can read the same stream concurrently at their own pace
+	- Event Hubs Capture - automatically writes streaming data directly to Blob Storage or ADLS Gen2 in Avro or Parquet format with zero code
 - pull model
 	- holds each message in its cache and allows it to be read
 	- when message is read it is not deleted
 	- messages remain for other consumers
 - tiers
-	- basic
-	- standard
-	- premium
+	- basic (1 consumer group, no Capture)
+	- standard (up to 20 consumer groups, Capture, Kafka endpoint)
+	- premium / dedicated (dedicated capacity, Private Link, CMK, up to 90-day retention)
 - use case
 	- live dashboarding, 
 	- supporting analytics pipelines like clickstreams, and 
@@ -71,13 +81,16 @@ author: Pralaya Panta
 - doesn't handle messages that aren't processed as expected
 
 ### Azure Event Grid
-- event routing and automation
+- reactive event routing and automation for discrete state changes (e.g., blob created, resource modified)
 - aggregates all events and provides routing from src to dst
+- concepts
+	- Event Sources -> Topics (System Topics, Custom Topics, Partner Topics, Event Domains) -> Event Subscriptions (with prefix/suffix/payload filters) -> Event Handlers
 - distributes event from sources like Azure Blob storage
 - distributed to handlers like Az function and webhooks 
 	- event handler --> subscribes
 - supports
-	- MQTT and HTTPs protocol
+	- push delivery (HTTP/S with 24-hour exponential retry + optional dead-lettering to Blob Storage)
+	- pull delivery & MQTT v3.1.1/v5.0 via Event Grid Namespace Topics (for IoT and pull consumers)
 - scenarios
 	- automating workflows
 	- event broadcasting
@@ -92,34 +105,47 @@ author: Pralaya Panta
 
 
 ### Azure IoT Hub
-- securely managing IoT devices
+- securely managing IoT devices (bidirectional device-to-cloud telemetry and cloud-to-device commands, device twins, DPS zero-touch provisioning)
 - device management
 - telemetry integration
 
 
 ## Azure API Management
-* **API Gateway:** Acts as a unified front for all APIs.
-* **Security Features:** Supports OAuth, JWT, and IP filtering.
-* **Rate Limiting and Throttling:** Prevent abuse and ensure stability.
-* **Developer Portal:** Self-service portal to discover, test, and interact.
-* tiers
-	* Classic (dev, basic, standard, premium)
-	* V2 tier (basic v2, standard v2, premium v2)
-	* Consumption tier
-	* Premium v2
+- API Gateway - acts as a unified façade for all backend APIs (accepts calls, verifies keys/JWTs/certs, enforces quotas, caches responses, transforms payloads)
+- Management Plane - configure APIs, Products (API bundles), Subscriptions, and XML policies
+- Developer Portal - self-service portal for developers to discover APIs, view OpenAPI docs, test endpoints, and request keys
+- common XML policies (applied Inbound, Backend, Outbound, or On-Error)
+	- validate-jwt (verify Entra ID / OAuth 2.0 tokens at the gateway)
+	- rate-limit-by-key and quota-by-key (throttling and DoS protection)
+	- ip-filter, check-header, cors (access control)
+	- cache-lookup and cache-store (response caching)
+	- rewrite-uri, set-header, xml-to-json, mock-response (transformation and mocking)
+- tiers
+	- Consumption tier - serverless pay-per-call, scales to zero (no Developer Portal, no VNet)
+	- Classic tiers (Developer, Basic, Standard, Premium) - Premium supports Multi-Region deployment, Availability Zones, and VNet injection
+	- v2 tiers (Basic v2, Standard v2, Premium v2) - fast deployment, simplified VNet integration and Private Endpoints
+- VNet & hybrid connectivity
+	- External VNet mode - gateway is public while backend APIs reside privately inside the VNet
+	- Internal VNet mode - gateway has only a private VNet IP (place Application Gateway WAF or Front Door Premium + Private Link in front for external access)
+	- Self-Hosted Gateway - containerized gateway deployed on-premises or multi-cloud (Kubernetes/Docker) to route local hybrid API traffic with low latency while managed centrally from Azure
 
 
 ## Azure Cache for Redis
 
-- **Definition:** A fully managed, in-memory cache that enables high-performance data storage and retrieval.    
-- **Key Features:**    
-    - High Throughput        
-    - Flexible Data Structure
-    - Data Persistence
-- Caching Patterns
-	- Cache Aside - to only load data into the cache as needed
-	- Write-Through
+- Definition - a fully managed, in-memory cache that enables high-performance data storage, distributed user session state, and low-latency retrieval
+- Key features
+	- high throughput and sub-millisecond latency
+	- flexible data structures (strings, hashes, lists, sets, sorted sets, pub/sub)
+	- data persistence (RDB snapshots / AOF logs)
+- Caching patterns
+	- Cache-Aside (lazy loading) - app checks Redis first; on cache miss, queries DB, writes result to Redis with a TTL, and returns it
+	- Write-Through / Write-Behind
 	- Read-Through
+- Tiers
+	- Basic - single node, no SLA (dev/test only)
+	- Standard - replicated 2-node Primary/Replica pair (99.9% SLA)
+	- Premium - adds data persistence, Redis clustering (horizontal sharding up to 10 shards), VNet injection / Private Link, and Zone Redundancy
+	- Enterprise & Enterprise Flash (Azure Managed Redis) - supports Active Geo-Replication (active-active multi-region writes up to 99.999% SLA), RediSearch/Vector Search, RedisJSON, and RedisTimeSeries
 - Azure Managed Redis is current recommended caching service
 - Azure Managed Redis can help improve performance in apps that interface with many database solutions, including Azure SQL Database, Azure Cosmos DB, and Azure Database for MySQL.
 
@@ -127,13 +153,15 @@ author: Pralaya Panta
 
 ## Azure App Configuration
 
-- centrally manage application settings and feature flags
+- centrally manage non-secret application settings and feature flags across microservices, App Service, Functions, and AKS
 - offers flexible key representations and mappings, and configuration snapshots - immutable point-in-time captures of all settings used for deployment rollback and audit
-- dedicated UI for feature flag management, and supports resource tagging with labels
-- sensitive info can be encrypted at rest and in transit
+- dedicated UI for feature flag management, and supports resource tagging with environment labels (Dev, Staging, Prod)
+- Sentinel key pattern - updating a single watched sentinel key triggers dynamic runtime configuration refresh across running apps without restarting them
+- Key Vault references - App Configuration stores non-secret settings and feature flags while referencing Azure Key Vault for sensitive secrets, keys, and certificates
+- sensitive info can be encrypted at rest (supports CMK) and in transit
 - geo-replication allows App Configuration stores to be replicated across Azure regions
 - development
-	- visual stuido, code, Azure CLI
+	- visual studio, code, Azure CLI
 - production
 	- azure, entra managed identities for azure
 

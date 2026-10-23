@@ -922,56 +922,56 @@ D) OneDrive for Business with Known Folder Move
 
 | Question | Answer Extract |
 |---|---|
-| Q1 | Answer: A — Azure Front Door is an Anycast-based global Laye |
-| Q2 | Answer: A — Azure Event Hubs is purpose-built for massive-sc |
-| Q3 | Answer: A — An Azure Policy utilizing the `Deny` effect eval |
-| Q4 | Answer: A — Auto-failover groups provide a read-write listen |
-| Q5 | Answer: A — Microsoft Entra Workload ID uses Kubernetes serv |
-| Q6 | Answer: A — Azure Cosmos DB Integrated Cache is an in-memory |
-| Q7 | Answer: A — Windows 11 Multi-Session allows multiple concurr |
-| Q8 | Answer: A — ExpressRoute Direct provides dual 10 Gbps or 100 |
-| Q9 | Answer: A — Azure Confidential VMs leverage hardware-based T |
-| Q10 | Answer: B — Blobs in the Archive tier offer the lowest at-re |
-| Q11 | Answer: C — Azure SQL Database Hyperscale supports databases |
-| Q12 | Answer: B — Azure Network Manager Security Admin Configurati |
-| Q13 | Answer: A — Azure Event Hubs Capture is a turnkey, fully-man |
-| Q14 | Answer: A — An App Service Environment v3 (Isolated v2 plan) |
-| Q15 | Answer: B — Azure Private Link Service combined with Azure P |
-| Q16 | Answer: B — Choosing `vehicleId` provides a high-cardinality |
-| Q17 | Answer: A and D — Either configuring App Service access rest |
-| Q18 | Answer: A — Disabling public network access and provisioning |
-| Q19 | Answer: B — Azure Container Apps integrates KEDA (Kubernetes |
-| Q20 | Answer: A — Vault Immutability in Locked mode ensures that b |
-| Q21 | Answer: B — Azure NetApp Files (ANF) is the officially certi |
-| Q22 | Answer: A — In enterprise hub-and-spoke architectures, the i |
-| Q23 | Answer: B — Compliance and data sovereignty laws require dat |
-| Q24 | Answer: A and B — For 24/7 predictable enterprise workloads, |
-| Q25 | Answer: B — MACsec (IEEE 802.1AE) is a Layer 2 hardware-leve |
-| Q26 | Answer: A and B — Duplicate detection checks the `MessageId` |
-| Q27 | Answer: B — Azure Logic Apps (Standard) runs on a single-ten |
-| Q28 | Answer: C — In state-of-the-art Azure RAG pipelines, Hybrid  |
-| Q29 | Answer: B — Azure Migrate discovers on-premises servers via  |
-| Q30 | Answer: C — Node Autoprovisioning (NAP) for AKS (powered by  |
-| Q31 | Answer: A — Azure AI Search (Standard tier or higher) with H |
-| Q32 | Answer: B — Azure Front Door Premium is an Anycast global La |
-| Q33 | Answer: A — An Azure Policy with the Deny effect assigned at |
-| Q34 | Answer: A — The Azure Cosmos DB Change Feed is an immutable, |
-| Q35 | Answer: A — Azure Bastion (Standard or Premium tier) provide |
-| Q36 | Answer: A — Azure SQL Database natively supports PITR (point |
-| Q37 | Answer: A — Azure Container Instances (ACI) provides serverl |
-| Q38 | Answer: B — When an application calls Microsoft Graph on beh |
-| Q39 | Answer: A — Azure Virtual WAN Routing Intent and Policies al |
-| Q40 | Answer: A — The Azure Cosmos DB Integrated Cache is an in-me |
-| Q41 | Answer: B — Azure Site Recovery (ASR) enables automated cros |
-| Q42 | Answer: A — Azure Private Endpoints keep storage traffic on  |
-| Q43 | Answer: B — AKS Pod Sandboxing leverages Kata Containers run |
-| Q44 | Answer: C — Azure API Management Premium tier supports deplo |
-| Q45 | Answer: A — Storing the connection string in Azure Key Vault |
-| Q46 | Answer: A — An Azure Policy utilizing the DeployIfNotExists  |
-| Q47 | Answer: D — Azure Cross-Region Load Balancer provides ultra- |
-| Q48 | Answer: A — Azure Blob Storage Immutability Policies support |
-| Q49 | Answer: A — Proximity Placement Groups (PPG) physically co-l |
-| Q50 | Answer: A — Azure File Sync synchronizes files between on-pr |
+| Q1 | Answer: A — Azure Front Door (Global Anycast L7 load balancing, SSL offload & WAF) |
+| Q2 | Answer: A — Azure Event Hubs for high-throughput telemetry ingestion + Stream Analytics |
+| Q3 | Answer: A — Azure Policy with `Deny` effect restricting allowed VM SKUs |
+| Q4 | Answer: A — Azure SQL Auto-Failover Groups with automatic geo-failover and R/W listener |
+| Q5 | Answer: A — Microsoft Entra Workload ID federation for AKS pods |
+| Q6 | Answer: A — Azure Cosmos DB Integrated Cache for low-cost point reads and repeated queries |
+| Q7 | Answer: A — Azure Virtual Desktop (AVD) with Windows 11 Enterprise multi-session |
+| Q8 | Answer: A — ExpressRoute Direct (dual 10/100 Gbps ports) with FastPath enabled |
+| Q9 | Answer: A — Azure Confidential VMs (AMD SEV-SNP / Intel TDX hardware memory encryption) |
+| Q10 | Answer: B — Azure Blob Storage Archive tier with High-Priority rehydration |
+| Q11 | Answer: C — Azure SQL Database Hyperscale tier (up to 128 TB storage & rapid log commit) |
+| Q12 | Answer: B — Azure Virtual Network Manager (AVNM) Security Admin Rules (evaluated before NSGs) |
+| Q13 | Answer: A — Azure Event Hubs Capture writing directly to ADLS Gen2 in Parquet/Avro format |
+| Q14 | Answer: A — App Service Environment v3 (Isolated v2 plan) for single-tenant VNet isolation |
+| Q15 | Answer: B — Azure Private Link Service + Private Endpoint across tenants without VNet peering |
+| Q16 | Answer: B — Partitioning Cosmos DB by `vehicleId` (high cardinality, even RU distribution) |
+| Q17 | Answer: A and D — App Service access restrictions with `X-Azure-FDID` header or Front Door Premium Private Link |
+| Q18 | Answer: A — Disable public network access + Private Endpoint + `privatelink` Private DNS Zone |
+| Q19 | Answer: B — Azure Container Apps with KEDA queue-length scaling (scales to zero when idle) |
+| Q20 | Answer: A — Recovery Services Vault Immutability in Locked mode + Multi-User Authorization (MUA) |
+| Q21 | Answer: B — Azure NetApp Files (ANF) Ultra tier for SAP HANA shared NFSv4.1 persistence |
+| Q22 | Answer: A — Hub-and-Spoke topology with Azure Firewall in the hub and UDR (`0.0.0.0/0 -> VirtualAppliance`) |
+| Q23 | Answer: B — Single-region Zone-Redundant Storage (ZRS) to keep all data strictly inside country borders |
+| Q24 | Answer: A and B — 3-year Azure Reserved VM Instances + Azure Hybrid Benefit (BYOL) |
+| Q25 | Answer: B — MACsec (IEEE 802.1AE) Layer-2 encryption on ExpressRoute Direct ports |
+| Q26 | Answer: A and B — Azure Service Bus Duplicate Detection (`MessageId`) + Message Sessions (`SessionId` FIFO) |
+| Q27 | Answer: B — Azure Logic Apps Standard (single-tenant) with VNet integration and Private Endpoints |
+| Q28 | Answer: C — Azure AI Search with Hybrid Search (Vector + BM25) and Semantic Ranker |
+| Q29 | Answer: B — Azure Migrate appliance for agentless VMware discovery and performance-based sizing |
+| Q30 | Answer: C — AKS Node Autoprovisioning (NAP / Karpenter) with Spot node pools |
+| Q31 | Answer: A — Azure AI Search with Document-level security trimming via Entra group claims |
+| Q32 | Answer: B — Azure Front Door Premium with WAF Bot Manager and rate-limiting rules |
+| Q33 | Answer: A — Azure Policy with `Deny` effect blocking creation of Public IP addresses |
+| Q34 | Answer: A — Azure Cosmos DB Change Feed triggering Azure Functions for real-time downstream actions |
+| Q35 | Answer: A — Azure Bastion Standard/Premium tier for browser/native RDP & SSH over TLS 443 |
+| Q36 | Answer: A — Azure SQL Database automated PITR (up to 35 days) + Long-Term Retention (up to 10 years) |
+| Q37 | Answer: A — Azure Container Instances (ACI) container groups with per-second billing |
+| Q38 | Answer: B — OAuth 2.0 On-Behalf-Of (OBO) flow to propagate delegated user identity to downstream APIs |
+| Q39 | Answer: A — Azure Virtual WAN Routing Intent and Routing Policies through Secured Virtual Hub |
+| Q40 | Answer: A — Azure Cosmos DB Integrated Cache for high-read, low-write NoSQL workloads |
+| Q41 | Answer: B — Azure Site Recovery (ASR) with Recovery Plans and Automation Runbooks |
+| Q42 | Answer: A — Azure Private Endpoints + Azure DNS Private Resolver for hybrid on-prem resolution |
+| Q43 | Answer: B — AKS Pod Sandboxing (Kata Containers) for kernel-level hypervisor isolation per pod |
+| Q44 | Answer: C — Azure API Management Premium tier with Multi-Region Gateway deployment |
+| Q45 | Answer: A — Azure Key Vault secret + System-Assigned Managed Identity + Key Vault Reference |
+| Q46 | Answer: A — Azure Policy `DeployIfNotExists` to automatically configure Diagnostic Settings |
+| Q47 | Answer: D — Azure Cross-Region Load Balancer for global L4 failover with client IP preservation |
+| Q48 | Answer: A — Azure Blob Storage Legal Hold immutability policy for litigation preservation |
+| Q49 | Answer: A — Proximity Placement Group (PPG) + Accelerated Networking for ultra-low VM latency |
+| Q50 | Answer: A — Azure File Sync with Cloud Tiering for hybrid on-premises Windows file shares |
 
 ---
 

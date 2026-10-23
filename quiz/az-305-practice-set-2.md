@@ -973,12 +973,6 @@ D) Pass-through authentication connected to on-premises domain controllers
 
 > [!faq]- Show Answer & Explanation
 > **Answer: A** — Microsoft Entra External ID (or B2B direct federation) enables external federation with third-party identity providers such as Google (OAuth/OIDC) and Okta (SAML/WS-Fed), allowing external users to authenticate using their enterprise credentials without custom auth plumbing. App Proxy (B) is for accessing on-premises applications. Local SQL credentials (C) defeat single sign-on. PTA (D) is strictly for hybrid AD DS sync.
->
-> ---
->
-> ---
->
-> ### Additional Architecture & Scenario Questions (Q11–Q20)
 ---
 
 ### Question 50
@@ -1003,56 +997,56 @@ D) Azure Network Watcher with NSGs on all subnets
 
 | Question | Answer Extract |
 |---|---|
-| Q1 | Answer: A — Microsoft Entra access reviews provide built-in  |
-| Q2 | Answer: A — A SAS token allows you to specify an exact start |
-| Q3 | Answer: A and E — Application Proxy (A) publishes on-premise |
-| Q4 | Answer: C — Access reviews support recurring schedules (ever |
-| Q5 | Answer: |
-| Q6 | Answer: |
-| Q7 | Answer: A (Yes) — Traffic Analytics processes NSG flow log d |
-| Q8 | Answer: B (No) — Azure Advisor provides best-practice recomm |
-| Q9 | Answer: |
-| Q10 | Answer: A — Access reviews provide built-in recurring schedu |
-| Q11 | Answer: A — A service-level SAS scoped to the container with |
-| Q12 | Answer: A — Application Proxy provides secure remote access  |
-| Q13 | Answer: A — You need two separate access reviews because the |
-| Q14 | Answer: A — Azure AD credential passthrough propagates each  |
-| Q15 | Answer: A — Corporate Entra joined devices get SSO via PRT a |
-| Q16 | Answer: A — IP flow verify provides an immediate answer: it  |
-| Q17 | Answer: |
-| Q18 | Answer: A — PIM audit logs in Log Analytics provide the acti |
-| Q19 | Answer: A — Connection Monitor provides continuous end-to-en |
-| Q20 | Answer: C, E, and F — Azure Policy can be assigned at three  |
-| Q21 | Answer: A — Dynamic Data Masking (DDM) hides sensitive data  |
-| Q22 | Answer: C — Azure Data Lake Storage Gen2 (GPv2 with hierarch |
-| Q23 | Answer: |
-| Q24 | Answer: D — A user-assigned managed identity is created once |
-| Q25 | Answer: C — Azure Synapse Link creates an analytical store — |
-| Q26 | Answer: |
-| Q27 | Answer: C — Password-based SSO (password vaulting) is design |
-| Q28 | Answer: |
-| Q29 | Answer: C — Azure resource tags are the standard mechanism f |
-| Q30 | Answer: A — Azure diagnostic settings support cross-region d |
-| Q31 | Answer: A and B — Dynamic Data Masking (A) applies a masking |
-| Q32 | Answer: A — Encryption scopes allow you to create multiple e |
-| Q33 | Answer: A — Key Vault references in App Service app settings |
-| Q34 | Answer: A — A single user-assigned managed identity can be a |
-| Q35 | Answer: A — Synapse Link's analytical store is a fully isola |
-| Q36 | Answer: C — Password-based SSO captures and stores credentia |
-| Q37 | Answer: A — Bastion is accessed through the Azure portal (or |
-| Q38 | Answer: B — A Policy initiative (policy set) bundles four ta |
-| Q39 | Answer: A — The analytical store is a completely separate co |
-| Q40 | Answer: C — Entitlement management enables you to manage acc |
-| Q41 | Answer: |
-| Q42 | Answer: A — Control-plane operations—including all resource  |
-| Q43 | Answer: B — A system-assigned managed identity provides an a |
-| Q44 | Answer: C — Microsoft Entra Access Reviews allow recurring s |
-| Q45 | Answer: |
-| Q46 | Answer: A — An Access Package in Entitlement Management bund |
-| Q47 | Answer: A — The `<validate-jwt>` policy dynamically fetches  |
-| Q48 | Answer: A — Microsoft Entra directory role assignments (such |
-| Q49 | Answer: A — Microsoft Entra External ID (or B2B direct feder |
-| Q50 | Answer: A — This is the standard enterprise reference archit |
+| Q1 | Answer: A — Microsoft Entra access review scoped to the OrderHub resource group |
+| Q2 | Answer: A — Shared Access Signature (SAS) with defined start and expiry time |
+| Q3 | Answer: A and E — Microsoft Entra Application Proxy + Enterprise Application registration |
+| Q4 | Answer: C — Microsoft Entra access review with 90-day recurrence, self-review, and auto-apply |
+| Q5 | Answer: B and B — Databricks Premium tier + Azure AD credential passthrough for POSIX ACLs |
+| Q6 | Answer: C and A — Entra joined device SSO via PRT + Conditional Access requiring compliant/Entra joined device |
+| Q7 | Answer: A (Yes) — Network Watcher Traffic Analytics analyzes flow logs for allowed/denied patterns |
+| Q8 | Answer: B (No) — Azure Advisor provides best-practice recommendations, not packet flow analysis |
+| Q9 | Answer: `SecurityEvent` (Windows security events) and `Syslog` (Linux security events) |
+| Q10 | Answer: A — Quarterly Microsoft Entra access review with project sponsor reviewer and auto-apply |
+| Q11 | Answer: A — Service-level SAS token (`Read` + `List`) scoped to the container with 48-hour expiry |
+| Q12 | Answer: A — Microsoft Entra Application Proxy with Kerberos Constrained Delegation (KCD) |
+| Q13 | Answer: A — Two separate access reviews (quarterly owner review + monthly guest self-review) |
+| Q14 | Answer: A — Premium tier Databricks workspace with credential passthrough / Unity Catalog |
+| Q15 | Answer: A — Two Conditional Access policies (compliant device SSO vs. unmanaged device MFA + session controls) |
+| Q16 | Answer: A — Azure Network Watcher IP Flow Verify to identify the blocking NSG rule |
+| Q17 | Answer: `SecurityEvent` (Windows RDP), `Syslog` (Linux SSH), and `AzureActivity` (ARM resource deletions) |
+| Q18 | Answer: A — PIM audit logs in Log Analytics + KQL alert rule + scheduled Azure Workbook |
+| Q19 | Answer: A — Azure Network Watcher Connection Monitor for hybrid latency, loss, and topology |
+| Q20 | Answer: C, E, and F — Management Groups, Subscriptions, and Resource Groups |
+| Q21 | Answer: A — Dynamic Data Masking (DDM) on sensitive SQL columns |
+| Q22 | Answer: C — ADLS Gen2 with Encryption Scopes (per-user keys) and account-level CMK |
+| Q23 | Answer: A and C — App Service Key Vault references + `Key Vault Secrets User` RBAC role |
+| Q24 | Answer: D — User-Assigned Managed Identity shared across current and future VMs |
+| Q25 | Answer: C — Azure Synapse Link for Azure Cosmos DB (zero-ETL analytical store) |
+| Q26 | Answer: A and B — Log Analytics workspace (interactive KQL) + Storage Account Archive tier (5-yr retention) |
+| Q27 | Answer: C — Password-based SSO (password vaulting) for legacy apps without federation |
+| Q28 | Answer: A and A — Azure Bastion (TLS 443 RDP/SSH) + Conditional Access policy requiring MFA |
+| Q29 | Answer: C — Azure Policy enforcing required resource tags (`environment, owner, department, costCenter`) |
+| Q30 | Answer: A (No) — Azure Diagnostic Settings support cross-region Log Analytics and Storage destinations |
+| Q31 | Answer: A and B — Dynamic Data Masking (`Credit Card` mask) + `GRANT UNMASK` for managers |
+| Q32 | Answer: A — Azure Storage Encryption Scopes with separate Customer-Managed Keys per department |
+| Q33 | Answer: A — App Service Key Vault references (`@Microsoft.KeyVault`) with Managed Identity |
+| Q34 | Answer: A — Single User-Assigned Managed Identity shared across the VM fleet |
+| Q35 | Answer: A — Azure Synapse Link analytical store (isolated from transactional RU consumption) |
+| Q36 | Answer: C — Password-based SSO with Microsoft Entra Application Proxy |
+| Q37 | Answer: A — Azure Bastion + Conditional Access MFA on Microsoft Azure Management |
+| Q38 | Answer: B — Azure Policy Initiative bundling tag governance policies at Management Group scope |
+| Q39 | Answer: A — Synapse Link analytical store auto-syncs without consuming transactional RUs |
+| Q40 | Answer: C — Microsoft Entra Entitlement Management Access Package with partner lifecycle policies |
+| Q41 | Answer: A and A — Inbound policy at Product/Global scope + `<validate-jwt>` XML policy |
+| Q42 | Answer: A — Azure Log Analytics querying the `AzureActivity` table |
+| Q43 | Answer: B — System-Assigned Managed Identity with `Reader` role at Subscription scope |
+| Q44 | Answer: C — Recurring Microsoft Entra Access Review with self-review and auto-apply |
+| Q45 | Answer: A and A — `Key Vault Secrets User` RBAC role + `DefaultAzureCredential` in `Azure.Identity` |
+| Q46 | Answer: A — Microsoft Entra Entitlement Management Access Package with 180-day expiration |
+| Q47 | Answer: A — APIM `<validate-jwt>` inbound policy with `openid-config` and `required-claims` |
+| Q48 | Answer: A — Forward Microsoft Entra `AuditLogs` to Log Analytics and query via KQL |
+| Q49 | Answer: A — Microsoft Entra External ID federated with Google (OIDC) and Okta (SAML) |
+| Q50 | Answer: A — Application Gateway (WAF v2) -> APIM (Internal VNet mode) -> Container Apps (Internal VNet) |
 
 ---
 
